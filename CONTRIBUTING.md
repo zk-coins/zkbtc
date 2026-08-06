@@ -11,15 +11,15 @@ This repository’s main artifact is the zkBTC design specification. Contributin
 
 ## Spec-conformance rule
 
-The specification establishes its own load-bearing invariants: the two-attack decomposition (Attack A / Attack B — private-fork mint settlement and Sybil-controlled operator epoch), the specific findings that close them, the gatekeeper-independent-exit requirement, and the sound-vs-unsound deployment classification of the different operator-registration / gatekeeper combinations.
+The specification establishes its own load-bearing invariants: the two-attack decomposition (Attack A / Attack B — private-fork mint settlement and Sybil-controlled operator epoch), the specific findings that close them, the gatekeeper-independent-exit requirement, and the three-class deployment taxonomy of the different operator-registration / gatekeeper combinations (**recommended** / **materially weaker, not clean** / **UNSOUND** — §6.4).
 
-- Any change to the trust model, or to a load-bearing invariant (a finding that closes one of the two attacks, the gatekeeper-independent-exit requirement, or the sound/unsound classification of a deployment profile), **must** be justified **explicitly in the specification itself** and **must** go through **adversarial review** — a human reviewer with a security background actively trying to find a way the change reopens a closed attack or weakens a stated guarantee. These invariants must never be silently weakened, softened, or dropped.
-- A change that removes or loosens a normative MUST / MUST NOT, narrows a stated residual, or reclassifies a deployment profile from unsound to sound (or vice versa) is a **security-relevant** change. Treat it with the same scrutiny as a change to a cryptographic protocol — not as an editorial tweak.
+- Any change to the trust model, or to a load-bearing invariant (a finding that closes one of the two attacks, the gatekeeper-independent-exit requirement, or the three-class deployment classification of a deployment profile), **must** be justified **explicitly in the specification itself** and **must** go through **adversarial review** — a human reviewer with a security background actively trying to find a way the change reopens a closed attack or weakens a stated guarantee. These invariants must never be silently weakened, softened, or dropped.
+- A change that removes or loosens a normative MUST / MUST NOT, narrows a stated residual, or reclassifies a deployment profile between any of the three classes (recommended / materially-weaker / unsound) is a **security-relevant** change. Treat it with the same scrutiny as a change to a cryptographic protocol — not as an editorial tweak.
 - Purely editorial changes (typos, formatting, clarifying prose that does not change normative meaning) do not need this level of scrutiny.
 
 ## How to approach this repository
 
-Guidance for anyone — human or automated — approaching this repository for the first time:
+Guidance for anyone approaching this repository for the first time:
 
 1. **Read the full specification** before proposing any change, in particular the requirements, the construction decision and maturity gate, the trust matrix, and the gatekeeper model sections in [`spec/ZKBTC_TOKEN.md`](./spec/ZKBTC_TOKEN.md).
 2. **Preserve normative keywords** MUST, MUST NOT, SHOULD, and MAY exactly as used in the specification (RFC 2119 usage). Do not soften or strengthen a normative keyword without an explicit, justified reason recorded in the specification’s own change log.
