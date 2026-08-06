@@ -594,7 +594,7 @@ redeem_commitment = Hc("zkCoins/v2/RedeemCommit",
 
 - Hiding: chain observers see only the field digest inside `H(ProofData)`, not the opening of `redeem_commitment`.
 - `btc_recipient` is a 32-byte x-only taproot key; the payout output is P2TR to it.
-- **`max_fee` (MUST — NH-03):** a `u64` satoshi ceiling on the operator's fee, committed inside `redeem_commitment`. The commitment **MUST** satisfy `max_fee < redeem_amount`. The payout **MUST** pay `btc_recipient` exactly the non-negative wide-integer difference `redeem_amount − max_fee` as a lower bound — i.e. at least `redeem_amount − max_fee`, computed with the parent §2.6 wide-integer gadgets so there is **no underflow and no zero-payout path from wrapping** (see §3.5.6 and §4.3.2). Binding a **ceiling** rather than an exact fixed fee is deliberate: a fee spike between redeem burn and fronting would otherwise leave the coin permanently unservable (loss of funds). The operator sets its actual fee `≤ max_fee` at fronting time.
+- **`max_fee` (MUST — NH-03):** a `u64` satoshi ceiling on the operator's fee, committed inside `redeem_commitment`. The commitment **MUST** satisfy `max_fee < redeem_amount`. The payout **MUST** pay `btc_recipient` exactly the non-negative wide-integer difference `redeem_amount − max_fee` as a lower bound — i.e. at least `redeem_amount − max_fee`, computed with the parent specification.md §2.6 wide-integer gadgets so there is **no underflow and no zero-payout path from wrapping** (see §3.5.6 and §4.3.2). Binding a **ceiling** rather than an exact fixed fee is deliberate: a fee spike between redeem burn and fronting would otherwise leave the coin permanently unservable (loss of funds). The operator sets its actual fee `≤ max_fee` at fronting time.
 - For **non-redeem** transitions (including **TS3 mints** and ordinary transfers), `redeem_commitment` **MUST** equal the all-zero 32-byte sentinel `0x00…00` (32 zero bytes). The circuit **MUST** accept the zero sentinel on non-redeem paths and **MUST** reject a zero sentinel when a redeem path is claimed (when `Out(zkBTC) == 0` and `In(zkBTC) > 0` for this asset under the redeem branch, or an explicit redeem flag if the implementation introduces one as an internal witness bit — either way the public field is non-zero iff a redeem is proven).
 - There is **no** `tip_height` field and **no** per-branch tip/freshness sentinel (NEW-HOLE-01 resolved by removal).
 #### 3.5.3 Redeem ID is the transition nullifier
@@ -626,7 +626,7 @@ The holder reveals the opening `(redeem_amount, btc_recipient, max_fee, redeem_b
 
 The holder supplies a payout template using `SIGHASH_SINGLE | ANYONECANPAY`:
 
-- Output 0 (or the signed output index): P2TR to `btc_recipient`, amount **≥ `redeem_amount − max_fee`** where `max_fee < redeem_amount` and the subtraction is an exact non-negative wide-integer (NH-03; parent §2.6 gadgets); the operator's actual fee is market-set at fronting time subject to that ceiling — §4.4.
+- Output 0 (or the signed output index): P2TR to `btc_recipient`, amount **≥ `redeem_amount − max_fee`** where `max_fee < redeem_amount` and the subtraction is an exact non-negative wide-integer (NH-03; parent specification.md §2.6 gadgets); the operator's actual fee is market-set at fronting time subject to that ceiling — §4.4.
 - Any operator **MAY** fund the input side from **its own funds**.
 
 The bridge fraud statement binds this template's paid output to the opening of `redeem_commitment`. An operator that pays a different address, or pays strictly less than `redeem_amount − max_fee`, **MUST** fail the reimbursement claim under an honest challenge path.
@@ -977,7 +977,7 @@ and a redeem transition proof such that:
   3. Recursive verification of the redeem transition's C proof under the
      pinned v2 verifier data (parent specification.md §5.6 requires this).
   4. Pkᵢ == redeem_proof.consumed_pubkey
-     (specification.md §5.6 anti-naked-nullifier binding; specification.md ~2094).
+     (specification.md §5.6 anti-naked-nullifier binding; ~line 2094).
   5. The verified transition took the TS3 redeem branch:
      In(zkBTC) == redeem_amount and Out(zkBTC) == 0
      (proven via the recursive proof — see exposition note).
@@ -988,7 +988,7 @@ and a redeem transition proof such that:
      agg_key admitted by this asset's operator_set_root.
   7. Fee bounds (NH-03): max_fee < redeem_amount, and
      redeem_amount − max_fee is computed as an exact non-negative
-     wide-integer (parent §2.6 gadgets) — no underflow, no zero payout
+     wide-integer (parent specification.md §2.6 gadgets) — no underflow, no zero payout
      from wrapping.
   8. The Bitcoin payout output is P2TR(btc_recipient) with amount
      ≥ redeem_amount − max_fee, confirmed on the canonical chain
