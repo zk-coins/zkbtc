@@ -8,7 +8,7 @@ This repository holds a **design-stage specification**. There is no deployed cod
 - **Do not** open a public GitHub issue for an unpatched soundness flaw.
 - **Include in the report:** description, reproduction / argument, and impact assessment.
 - **Acknowledgment target:** within 48 hours.
-- **Responsible disclosure (90-day policy):** after reporting: (1) confirm the issue within 48 hours, (2) develop and test a fix (here: a specification revision), (3) publish the fix, (4) credit the reporter unless they prefer anonymity.
+- **Responsible disclosure (90-day policy):** after reporting: (1) confirm the issue within 48 hours, (2) develop and test a fix (here: a specification revision), (3) publish the fix — by default no later than 90 days after the report is acknowledged, or earlier once a specification revision is published, (4) credit the reporter unless they prefer anonymity.
 - **Supported version:** only the latest revision on `main` is in scope for security response.
 
 ## Scope

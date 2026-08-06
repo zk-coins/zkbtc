@@ -7,13 +7,6 @@ Thumbs.db
 .idea/
 *.swp
 
-# Dependencies / tooling (if docs tooling is added later)
-node_modules/
-
-# Build output
-dist/
-build/
-
 # Environment and secrets
 .env
 .env.*
@@ -21,3 +14,5 @@ build/
 # Logs
 *.log
 logs/
+
+# Add build/tooling ignores (e.g. node_modules/, dist/, build/) if docs tooling is introduced later.
