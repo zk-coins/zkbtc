@@ -15,7 +15,7 @@ This repository holds a **design-stage specification**. There is no deployed cod
 
 | In scope | Out of scope |
 | --- | --- |
-| Soundness of this repository’s trust model and attack analysis (zkBTC token standard and bridge profile in [`spec/ZKBTC_TOKEN.md`](./spec/ZKBTC_TOKEN.md)). | Underlying **zkCoins protocol** (nullifier accumulator, shielded transfers, token-standard framework) — report to [`zk-coins/docs`](https://github.com/zk-coins/docs) instead. |
+| Soundness of this repository's design specification — the trust model, attack analysis, and the **circuit / BitVM2-graph / pre-signed-graph soundness** of the zkBTC token standard and bridge profile (the theft-enabling class the specification itself flags at §4.5 / §4.6B), in [`spec/ZKBTC_TOKEN.md`](./spec/ZKBTC_TOKEN.md). | Underlying **zkCoins protocol** (nullifier accumulator, shielded transfers, token-standard framework) — report to [`zk-coins/docs`](https://github.com/zk-coins/docs) instead. |
 | | Underlying **BitVM2** construction itself — upstream of this specification, out of scope here. |
 
 ## Known residuals
