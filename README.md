@@ -4,6 +4,10 @@
 
 **Status:** This repository holds a **design specification** only. There is no implementation code here, the design has not been externally audited, and it is **not production-ready**. The normative document is [`spec/ZKBTC_TOKEN.md`](./spec/ZKBTC_TOKEN.md).
 
+## In plain terms
+
+zkBTC lets you lock real Bitcoin and receive a private, freely transferable token that is meant to be backed one-for-one by that Bitcoin, and that any holder can redeem back into on-chain BTC without a central party's permission. An optional "gatekeeper" can screen *new* deposits for tainted coins at mint time, but it can never freeze, seize, block, or reverse anyone's coins, transfers, or exit. The trade-offs are real and are listed under **Costs, limitations, and residual risks** below: the guarantees hold only under a set of assumptions, redeeming depends on at least one independent operator being willing to serve, and this repository is a **design specification** — unaudited and not production-ready.
+
 ## What zkBTC is
 
 zkBTC is token standard 3 (`issuance_version == 3`) on the zkCoins protocol: an ordinary multi-asset zkCoins coin, verified by the same circuit and nullifier accumulator as every other zkCoins asset.
@@ -38,6 +42,8 @@ For the full argument, see the specification’s **Trust matrix** and **Gatekeep
 
 ## Costs, limitations, and residual risks
 
+**When is zkBTC safe, in one sentence?** Its guarantees hold as long as at least one of the many operators is honest, at least one watchful party reports fraud in time, the optional gatekeeper does its entry checks honestly, the underlying cryptography and Bitcoin transaction graph are implemented correctly, and no attacker controls more than roughly half of Bitcoin's hash power (the same "51%" assumption Bitcoin itself relies on) — if any one of these fails, backing can, in the worst case, be lost.
+
 zkBTC is a design that states its residuals plainly rather than masking them. A fair reader should weigh all of the following before treating it as "just Bitcoin":
 
 - **Conditional guarantees, not unconditional ones.** "No operator can steal" holds only under the full trust model: 1-of-N setup honesty, at least one honest challenger actually acting within each challenge window, and **sound circuit / BitVM2-graph crypto**. A critical soundness bug in the circuit or graph can enable **actual theft** (not just freeze) — which is why an external audit is a launch gate.
@@ -49,7 +55,7 @@ zkBTC is a design that states its residuals plainly rather than masking them. A 
 - **Irreversibility.** With no security council and no admin keys, **under the trust model above (including sound circuit/graph crypto)** the worst case is a **freeze/burn** of affected deposits (a soundness bug is the separate theft case noted in the first bullet) — potentially **permanent** absent a future covenant soft-fork. "Not theft" does not mean "recoverable."
 - **N-of-N minting fragility.** An N-of-N gatekeeper aggregate permanently disables minting of that asset if a single member key is lost (a threshold gatekeeper is recommended); a gatekeeper cannot be rotated in place (rotation = a new asset).
 - **Boundary privacy.** Peg-in and peg-out are public Bitcoin events; amounts and timing at the boundary are observable and correlatable, even though internal transfers stay shielded.
-- **Bitcoin-layer exposure.** The design assumes a Bitcoin adversary below ~45–50% hashrate over the challenge horizon, deep finality for backing transactions, and that time-sensitive challenge/payout transactions actually confirm in-window — L1 fee spikes, RBF/CPFP/pinning, or miner censorship/MEV that delay a challenge or a payout are an operational risk on the liveness/safety path. On the redeem side there is no external canonical anchor (the gatekeeper is absent from exit by design), so payout canonicity against a deep private fork depends on the challenge comparing most-work chains — an enforcement detail that is an open conversion/audit item, not yet demonstrated.
+- **Bitcoin-layer exposure.** The design assumes a Bitcoin adversary below ~45–50% hash power over the challenge/finality horizon. **This is Bitcoin's own base security assumption, inherited — not a zkBTC-specific weakness:** an attacker with majority hash power can already reverse *any* recently confirmed Bitcoin transaction (a deep reorg / the "51% attack"), which breaks Bitcoin payments in general, and zkBTC mitigates it with very deep confirmations (~2016 blocks ≈ two weeks) so the attack is economically irrational below that threshold. The design also assumes deep finality for backing transactions and that time-sensitive challenge/payout transactions actually confirm in-window — L1 fee spikes, RBF/CPFP/pinning, or miner censorship/MEV that delay a challenge or a payout are an operational risk on the liveness/safety path. On the redeem side there is no external canonical anchor (the gatekeeper is absent from exit by design), so payout canonicity against a deep private fork depends on the challenge comparing most-work chains — an enforcement detail that is an open conversion/audit item, not yet demonstrated.
 - **No registration-free exit today.** A holder who never registers as an operator relies on some registered operator to front and reclaim; registration-free unilateral self-reclaim from a pooled vault needs covenant soft-forks not yet on Bitcoin mainnet.
 - **Not production-ready.** No implementation code exists, the design is unaudited, and three gates (predicate conversion, open-registration market, external audit) plus the REQ-4 gates must clear first.
 
