@@ -1396,7 +1396,7 @@ Discovery, if any, **SHOULD** use a distinct operator `features` flag (not the r
 
 ## 10. Future upgrade paths
 
-Two clearly labeled tracks. Neither is a launch dependency.
+Three clearly labeled tracks. None is a launch dependency.
 
 ### 10.1 Efficiency upgrades (NOT soft-fork; 1-of-N structure family)
 
@@ -1420,6 +1420,18 @@ Covenant soft forks (OP_CTV / CSFS / OP_CAT class) would allow an anyone-can-sat
 **Witness-encryption / PIPEs v2** is a research-only soft-fork-free theoretical path toward registration-free reclaim (not product-ready; eprint 2026/186).
 
 **Design consequence now:** the redeem statement (§3.5) is construction-agnostic — a hiding commitment plus an anchored ID `(Pkᵢ, Rᵢ)` — so **both** upgrade tracks **MAY** consume the **same** statement without rewriting the token standard. This document does not promise activation dates or claim that covenants are near.
+
+### 10.3 Reserve rotation across vault generations (informative)
+
+This subsection is informative — an idea for how deployments and future versions could further reduce epoch-aging risk. It defines no requirement of this specification.
+
+**Motivation.** Vault spend paths are pre-signed per deposit epoch at setup (§3.1.1, §4.1.2), and newly registered operators join only future epochs (§4.1.1). Backing that remains in old vault generations therefore accumulates operator-liveness / freeze risk over time (§4.1.1, §4.3, §5; no-council residual §4.5), while fresh generations carry current, more diverse operator sets.
+
+**Stage 1 (soft).** Operators of older epochs, while still serviceable, could prefer the oldest live vaults as their reimbursement source when serving redemptions. Redemption traffic would then drain the oldest generations first, and the reserve would roll forward into fresher vault generations on its own. Independently, any holder or operator can roll backing forward explicitly by redeeming and having the serving operator reimburse from an old-epoch vault (or self-serving as that epoch's operator), then re-depositing into a current epoch (redeem-then-remint).
+
+**Stage 2 (strict — a possible future version).** A future protocol or deployment version could go further and treat rotation into the newest vault generation as a condition of good standing: backing that has not rolled forward within some defined window would be considered degraded, and such a deployment could regard the asset's reserve quality as degraded for exit-liveness purposes — not a per-coin taint: coins remain one fungible asset with no provenance field (§4.1.1, §3.5.5) — surfaced, for example, through an extended published attestation (in the spirit of §3.6's optional ledgers) or through client policy rather than through the circuit.
+
+**Honest limits.** Nothing in the present construction enforces rotation. Spend paths are fixed at setup, and rotation is executable only by the old epoch's own operators or by holders re-pegging. The on-chain cost of rolling, who bears it, and the staleness window are open calibration questions (see §11 item 8 — epoch rotation across deposit generations without an admin path).
 
 ---
 
@@ -1530,6 +1542,7 @@ Covenant soft forks (OP_CTV / CSFS / OP_CAT class) would allow an anyone-can-sat
 | 2026-08-07 | Strengthened the operator-reimbursement rule with a **mechanized sole-funder** requirement — every payout input must be authorised by the claiming operator's registered identity, so a co-signed transaction funded by a second party is not claimable — replacing a behavioural "an honest operator will not co-sign" argument that a hiding identity commitment had weakened; and split the overloaded finding ID (the payout-funding rule is now **NEW-04**, distinct from the claim-marker uniqueness / slashed-marker exclusion **NEW-02**). |
 | 2026-08-07 | Further hardened the reimbursement rule to require **single-party-authorised** inputs — each payout input must be spendable by the claiming operator's identity **alone**, so a jointly-signed (2-of-2 / multisig) input co-funded by a second party is not claimable — and, since Bitcoin exposes spending authority rather than economic provenance, restated the closure honestly as covering the **known** claim-hijack variants with the exact input-authorisation check flagged as a G4-audit focus. Also added the active-in-window-challenger condition to the §4.5 "worst case is freeze" statement, qualified the private-fork "very unlikely to succeed" phrasing near the 50% hash-power margin, and restored the NH-04 finding-ID tag on §8.2. |
 | 2026-08-07 | Documentation: added a plain-language "How zkBTC is deployed" section to the README and a §2.6 deployment-and-packaging note to the specification — recording that the off-circuit half ships as a single operator Docker module bundling the bridge and the optional gatekeeper entry control, that on the zkCoins side it acts as an ordinary API client and on the Bitcoin side drives `bitcoind`, without using the operator-internal kernel RPC or touching the trustless core, and that packaging the two roles together is a deployment convenience that does not change the trust model — the gatekeeper stays the mint-time entry control and vault safety still rests on the 1-of-N basis, with the existing role and registration rules unchanged. Also switched the plain-language deposit-screening wording from "tainted coins" to neutral source / entry-criteria phrasing. |
+| 2026-08-07 | Documentation (informative): added §10.3 on oldest-first reserve rotation across vault generations — soft preference for reimbursing from the oldest live vaults (plus explicit redeem-then-remint), and a possible future strict variant that would treat unrotated backing as degraded; explicitly non-normative; no launch dependency. |
 
 ---
 
