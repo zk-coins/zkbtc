@@ -6,7 +6,7 @@
 
 ## In plain terms
 
-zkBTC lets you lock real Bitcoin and receive a private, freely transferable token that is meant to be backed one-for-one by that Bitcoin, and that any holder can redeem back into on-chain BTC without a central party's permission. An optional "gatekeeper" can screen *new* deposits for tainted coins at mint time, but it can never freeze, seize, block, or reverse anyone's coins, transfers, or exit. The trade-offs are real and are listed under **Costs, limitations, and residual risks** below: the guarantees hold only under a set of assumptions, redeeming depends on at least one independent operator being willing to serve, and this repository is a **design specification** — unaudited and not production-ready.
+zkBTC lets you lock real Bitcoin and receive a private, freely transferable token that is meant to be backed one-for-one by that Bitcoin, and that any holder can redeem back into on-chain BTC without a central party's permission. An optional "gatekeeper" can check the source of *new* deposits at mint time and admit only those that meet the asset's entry criteria, but it can never freeze, seize, block, or reverse anyone's coins, transfers, or exit. The trade-offs are real and are listed under **Costs, limitations, and residual risks** below: the guarantees hold only under a set of assumptions, redeeming depends on at least one independent operator being willing to serve, and this repository is a **design specification** — unaudited and not production-ready.
 
 ## What zkBTC is
 
@@ -21,6 +21,17 @@ zkBTC is token standard 3 (`issuance_version == 3`) on the zkCoins protocol: an 
 | Operator registration | Open, permissionless, per-epoch: anyone may register (bond + pubkey) for a deposit epoch and serve exits, including a holder acting as their own exit agent. No fixed or privileged operator. |
 | Optional gatekeeper | Per-asset quality authority at mint: source-of-funds / vault-legitimacy screening, canonical-chain anchor for mint settlement, and vouching for operator-set diversity at mint time. **No role in peg-out.** Cannot freeze circulating coins, block transfers or redemptions, redirect a mint to a different recipient, or unilaterally seize the vault (no gatekeeper key on vault spends). When it performs its R-04/R-08 checks honestly, it also cannot forge an unbacked mint; a compromised or negligent gatekeeper that skips those checks can enable a backing drain (Attack A/B — see "Trust model" below). |
 | Redemption | Gatekeeper-independent, open-operator, liveness-bounded (REQ-4): every holder must be able to redeem for on-chain BTC without the gatekeeper’s permission or cooperation. Exit depends only on the liveness of at least one registered operator — never a fixed or privileged operator. No operator can steal under 1-of-N setup honesty, at least one honest, live challenger acting within the challenge window, and sound circuit/graph crypto (a critical soundness bug in the circuit or BitVM2 graph can instead enable theft — see "Costs, limitations, and residual risks"); worst case under those conditions is freeze/burn, not theft. |
+
+## How zkBTC is deployed
+
+zkBTC runs as a **single self-contained software package** (one Docker module) that an operator runs alongside the zkCoins software. It bundles the two jobs that keeping a token backed one-for-one by Bitcoin needs — the jobs that happen outside the private zkCoins ledger:
+
+- **The bridge** holds the Bitcoin reserve and handles the way in (locking BTC to mint zkBTC) and the way out (redeeming zkBTC back into on-chain BTC).
+- **The gatekeeper** is the optional entry control. It checks the source of each *new* deposit and admits only deposits that meet the asset's entry criteria. It has no say over coins that already exist: it cannot freeze, seize, block a transfer, or block a redemption. Its role is at the entrance, never over anyone's balance.
+
+On the zkCoins side the package behaves like an ordinary wallet, talking to the same public interface every wallet uses. On the Bitcoin side it behaves like an ordinary Bitcoin service. It never reaches into the trustless zkCoins core: the part of the system that actually holds the balances stays behind that public interface, out of the package's reach, exactly as it does for every other participant.
+
+The token itself is not a separate service: a zkBTC coin is an ordinary zkCoins coin (token standard 3), so what makes it mintable and redeemable lives in zkCoins' shared verification logic next to the other token standards, not in this package.
 
 ## Trust model
 
