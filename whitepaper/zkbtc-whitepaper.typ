@@ -494,7 +494,9 @@ $4 times 10^6 \/ 64 \/ 600 approx 104$ transitions per second if the entire bloc
 were nullifiers. Block verification for the nullifier stream is cheaper than
 Bitcoin's own: there is no witness execution and no UTXO lookup. New nodes need
 no initial block download of transaction data, only the 64-byte markers and the
-append-only first-occurrence log.
+append-only first-occurrence log. Every node derives that log from the chain
+alone, so nodes can leave and rejoin at will, accepting the nullifiers inscribed
+while they were gone as proof of what happened — there is nothing else to trust.
 
 // ============================================================================
 // 8. Simplified Verification
