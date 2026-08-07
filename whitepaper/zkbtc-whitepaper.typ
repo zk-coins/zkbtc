@@ -97,7 +97,7 @@
   #v(0.8em)
   #text(size: 11pt)[TaprootFreak]
   #v(0.3em)
-  #text(size: 11pt)[www.zkcoins.app]
+  #text(size: 11pt)[www.zkcoins.com]
 ]
 
 #v(1.0em)
