@@ -79,6 +79,7 @@ Details are in the specification’s **Construction decision and maturity gate**
 | Path | Role |
 | --- | --- |
 | [`spec/ZKBTC_TOKEN.md`](./spec/ZKBTC_TOKEN.md) | **Canonical, single normative** specification for the zkBTC token standard and bridge profile. |
+| [`whitepaper/zkbtc-whitepaper.pdf`](./whitepaper/zkbtc-whitepaper.pdf) | Nine-page whitepaper introducing zkBTC and the zkCoins transfer layer it builds on, structured after the Bitcoin whitepaper. **Informative only — not normative**: where it simplifies, the specification governs. Typst source: [`whitepaper/zkbtc-whitepaper.typ`](./whitepaper/zkbtc-whitepaper.typ) (build with `typst compile`). |
 | [`CONTRIBUTING.md`](./CONTRIBUTING.md) | How to propose changes and the spec-conformance rules. |
 | [`SECURITY.md`](./SECURITY.md) | Responsible disclosure for soundness issues. |
 | [`LICENSE`](./LICENSE) | MIT license. |
