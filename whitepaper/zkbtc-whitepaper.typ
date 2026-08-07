@@ -308,9 +308,9 @@ many markers.
 
 Where Bitcoin enforces rules with proof-of-work, zkCoins enforces them with
 zero-knowledge validity proofs. One compliance predicate $C$ (a single circuit)
-checks every transition: value conservation (inputs equal outputs, wide-sum
-and overflow-safe), authorization by the account key, correct predecessor
-state, one-time use of each coin, and the anchoring of everything the verifier
+checks every transition: per-asset value conservation (wide-sum, overflow-safe,
+so no transition creates value), authorization by the account key, correct
+predecessor state, one-time use of each coin, and the anchoring of everything the verifier
 cannot see into hiding commitments. Proofs compose recursively (proof-carrying
 data): verifying the latest proof verifies the entire history back to genesis,
 so verification cost is constant regardless of history length. Forging a coin
@@ -505,10 +505,11 @@ It is possible to verify payments without running a full proving stack. Two
 light-verification arrangements apply.
 
 A thin wallet may hold only its keys and secret blinds while a node runs
-scanning and proving. Wallet-native hiding commitments (payment intent and the
-next-key commitment) are bound in-circuit, so a malicious node can neither
-redirect outputs nor rotate keys. The wallet never blind-signs values it cannot
-check.
+scanning and proving. The account's next spending key is bound through a
+wallet-native hiding commitment, so a malicious node cannot rotate the wallet's
+keys. It can, however, still choose the outputs it proves: binding payment
+intent into the circuit is documented open design work, so a wallet that
+delegates proving places that much trust in its node.
 
 Separately, the mint transition embeds a recursive Bitcoin light-client proof
 (headers and proof-of-work depth) showing that the backing transaction is buried
@@ -519,11 +520,9 @@ mint path can carry an external canonical-view check (the gatekeeper of
 Section 11).
 
 Users who receive frequent or high-value payments will still prefer to run their
-own node and prover for independent verification. The thin-wallet arrangement is
-a convenience whose safety rests on the in-circuit commitments above, not on
-trusting the node. Anyone who can run both recovers the full client-side
-verification path of Section 4 without relying on a third party for scanning or
-proving.
+own node and prover for independent verification. Delegation is a convenience
+with that residual; running both recovers the full client-side verification path
+of Section 4 without relying on a third party for scanning or proving.
 
 #v(0.3em)
 // FIG-6: header chain + LCP branch
@@ -858,8 +857,9 @@ honesty, at least one honest live challenger in each window, and sound
 cryptography, operators cannot steal. A gatekeeper, when designated, acts only
 at the mint boundary and cannot freeze transfers or redemption. Exit depends on
 liveness of some registered operator, never on permission. The guarantees are
-conditional on the enumerated assumptions, and the design is a specification
-awaiting implementation and external audit.
+conditional on the enumerated assumptions. This paper is an informative
+introduction; the design is specified normatively in [8] and awaits
+implementation and external audit.
 
 // ============================================================================
 // References
@@ -891,5 +891,5 @@ ePrint Archive 2025/776, 2025.
 [7]#h(0.6em)P. Wuille, J. Nick, T. Ruffing, "Schnorr Signatures for secp256k1,"
 BIP-340, 2020.
 
-[8]#h(0.6em)"zkCoins protocol specification" and "zkBTC token standard,"
-https://github.com/zk-coins, 2026.
+[8]#h(0.6em)"zkCoins protocol specification," https://github.com/zk-coins/docs, and "zkBTC token
+standard," https://github.com/zk-coins/zkbtc, 2026.
