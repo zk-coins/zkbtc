@@ -148,13 +148,13 @@ graph cryptographically, and lets any holder exit back to on-chain bitcoin
 without anyone's permission. This paper proposes such a system. zkCoins is a
 client-side-validated transfer protocol whose only on-chain footprint is a
 constant 64 bytes per transaction. zkBTC is a bitcoin-backed token on that
-protocol whose reserve is secured by fraud proofs rather than custody. The
-system is secure as long as the following assumptions hold: honest majority
-hashpower for Bitcoin's ordering of nullifiers; for the reserve, one honest
-operator per backing group at setup (key deletion), at least one honest live
-challenger acting within each challenge window, and sound proof-system and
-BitVM2 graph cryptography. A designated gatekeeper can additionally check
-mint canonicity and operator-set diversity.
+protocol whose reserve is secured by fraud proofs rather than custody. Honest
+majority hashpower orders the nullifiers. Operators cannot steal the reserve
+as long as one honest operator per backing group deletes its key at setup, at
+least one honest live challenger acts within each challenge window, and the
+circuit and BitVM2 graph cryptography are sound. Mint canonicity and
+operator-set diversity are separate residuals; a designated gatekeeper can
+check both.
 
 // ============================================================================
 // 2. Transactions
@@ -662,8 +662,8 @@ MoveToBacked is buried at least $D_"mint"$ blocks deep (deep finality, on the
 order of 2016 blocks) and that the vault instance matches the asset's terms:
 the operator-registration policy root, amount equality with the vault output,
 and a one-shot mint key so each vault mints exactly once. Circulating supply is
-then a conditional upper bound against the public vault set under the reserve
-safety assumptions, not an unconditional invariant of the chain alone.
+then a conditional upper bound against the public vault set on the
+canonical chain, not an unconditional invariant of the chain alone.
 
 The gatekeeper is optional and per-asset. Pure
 in-circuit proof-of-work depth cannot prove canonicity (a private fork can be
