@@ -152,9 +152,9 @@ protocol whose reserve is secured by fraud proofs rather than custody. The
 system is secure as long as the following assumptions hold: honest majority
 hashpower for Bitcoin's ordering of nullifiers; for the reserve, one honest
 operator per backing group at setup (key deletion), at least one honest live
-challenger acting within each challenge window, sound proof-system and BitVM2
-graph cryptography; and, where an asset designates one, an honest gatekeeper at
-mint time.
+challenger acting within each challenge window, and sound proof-system and
+BitVM2 graph cryptography. A designated gatekeeper can additionally check
+mint canonicity and operator-set diversity.
 
 // ============================================================================
 // 2. Transactions
@@ -709,7 +709,7 @@ contribution, a depositor-side loss path. With no council and no admin keys, a
 freeze under the stated assumptions can be permanent absent a future covenant
 upgrade. "Not theft" does not mean "recoverable."
 
-We consider the probability of a private-fork mint settlement in the same terms
+We consider the probability of a canonical-chain catch-up in the same terms
 as Nakamoto's attacker analysis [1]. The race between the honest chain and an
 attacker is a Binomial Random Walk. The probability of an attacker catching up
 from $z$ blocks behind, when $p$ is the probability an honest node finds the
@@ -838,11 +838,13 @@ finality yields, for three attacker shares:
 ]
 #set par(first-line-indent: 1em, leading: 0.65em)
 
-At deep finality the private-fork channel is economically closed even for a 45\%
-attacker: $z = 2016$ yields probabilities on the order of $10^(-176)$ and
-smaller. The residual mint risk is therefore canonicity of the proven chain and
-the distinction between one party's keys and many parties, not raw
-proof-of-work catch-up. A designated gatekeeper can check both at mint time.
+At deep finality catch-up against the honest chain is economically closed even
+for a 45\% attacker: $z = 2016$ yields probabilities on the order of
+$10^(-176)$ and smaller. That is not Attack A: a private fork can still be
+deep without catching the honest chain. The residual mint risk is therefore
+canonicity of the proven chain and the distinction between one party's keys
+and many parties, not raw proof-of-work catch-up. A designated gatekeeper can
+check both at mint time.
 
 // ============================================================================
 // 12. Conclusion
