@@ -665,20 +665,19 @@ and a one-shot mint key so each vault mints exactly once. Circulating supply is
 then a conditional upper bound against the public vault set under the reserve
 safety assumptions, not an unconditional invariant of the chain alone.
 
-The gatekeeper is optional, per-asset, and load-bearing when present. Pure
+The gatekeeper is optional and per-asset. Pure
 in-circuit proof-of-work depth cannot prove canonicity (a private fork can be
 deep) and cannot distinguish one party's many keys from many parties (a Sybil
 operator epoch). Two independent backing-drain attacks follow: private-fork mint
 settlement (Attack A), and a self-controlled operator epoch drained via ordinary
-redemption (Attack B). A designated gatekeeper closes both at mint time only.
+redemption (Attack B). A designated gatekeeper can close both at mint time only.
 It co-signs a mint only after confirming, on its own canonical Bitcoin view, the
 backing transaction and the epoch's registration commitment (Attack A), and only
 if it vouches that the epoch's operator set contains at least one independent
 honest signer (Attack B). It has no key on the vault, no role in transfers or
 redemption, and cannot freeze, seize, or redirect. It can only refuse new mints.
 A negligent or compromised gatekeeper that skips these checks enables Attacks A
-and B; gatekeeper integrity at mint is therefore a backing-safety dependency in
-gated mode. Without a gatekeeper, a pooled open-registration reserve is unsound.
+and B.
 
 Operators register openly. Anyone may register per deposit epoch by posting a
 bond with proof of key possession. Registrations commit into a policy root. A
@@ -841,8 +840,9 @@ finality yields, for three attacker shares:
 
 At deep finality the private-fork channel is economically closed even for a 45\%
 attacker: $z = 2016$ yields probabilities on the order of $10^(-176)$ and
-smaller. The residual mint risk is therefore the canonical-view and Sybil pair
-closed by the gatekeeper, not raw proof-of-work catch-up.
+smaller. The residual mint risk is therefore canonicity of the proven chain and
+the distinction between one party's keys and many parties, not raw
+proof-of-work catch-up. A designated gatekeeper can check both at mint time.
 
 // ============================================================================
 // 12. Conclusion
