@@ -1,9 +1,9 @@
-// zkBTC: Private Electronic Cash Backed by Bitcoin
+// zkBTC: Fully Private, Trust-Free Bitcoin
 // Structural homage to Satoshi Nakamoto, Bitcoin (2008).
 // Built-ins only; no imports.
 
 #set document(
-  title: "zkBTC: Private Electronic Cash Backed by Bitcoin",
+  title: "zkBTC: Fully Private, Trust-Free Bitcoin",
   author: "TaprootFreak",
 )
 #set page(
@@ -92,7 +92,7 @@
 #align(center)[
   #v(0.25em)
   #text(size: 17.5pt, weight: "bold")[
-    zkBTC: Private Electronic Cash Backed by Bitcoin
+    zkBTC: Fully Private, Trust-Free Bitcoin
   ]
   #v(0.8em)
   #text(size: 11pt)[TaprootFreak]

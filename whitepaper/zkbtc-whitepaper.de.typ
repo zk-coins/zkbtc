@@ -1,9 +1,9 @@
-// zkBTC: Privates elektronisches Geld, gedeckt durch Bitcoin
+// zkBTC: Das vollständig private, vertrauensfreie Bitcoin
 // Structural homage to Satoshi Nakamoto, Bitcoin (2008).
 // German translation of zkbtc-whitepaper.typ. Built-ins only; no imports.
 
 #set document(
-  title: "zkBTC: Privates elektronisches Geld, gedeckt durch Bitcoin",
+  title: "zkBTC: Das vollständig private, vertrauensfreie Bitcoin",
   author: "TaprootFreak",
 )
 #set page(
@@ -83,7 +83,7 @@
 #align(center)[
   #v(0.25em)
   #text(size: 16.5pt, weight: "bold")[
-    zkBTC: Privates elektronisches Geld, gedeckt durch Bitcoin
+    zkBTC: Das vollständig private, vertrauensfreie Bitcoin
   ]
   #v(0.8em)
   #text(size: 11pt)[TaprootFreak]
