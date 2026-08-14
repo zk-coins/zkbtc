@@ -1,9 +1,9 @@
-// zkBTC: Private Electronic Cash Backed by Bitcoin
+// zkBTC: Fully Private, Trustless Bitcoin
 // Structural homage to Satoshi Nakamoto, Bitcoin (2008).
 // Built-ins only; no imports.
 
 #set document(
-  title: "zkBTC: Private Electronic Cash Backed by Bitcoin",
+  title: "zkBTC: Fully Private, Trustless Bitcoin",
   author: "TaprootFreak",
 )
 #set page(
@@ -92,7 +92,7 @@
 #align(center)[
   #v(0.25em)
   #text(size: 17.5pt, weight: "bold")[
-    zkBTC: Private Electronic Cash Backed by Bitcoin
+    zkBTC: Fully Private, Trustless Bitcoin
   ]
   #v(0.8em)
   #text(size: 11pt)[TaprootFreak]
@@ -148,13 +148,13 @@ graph cryptographically, and lets any holder exit back to on-chain bitcoin
 without anyone's permission. This paper proposes such a system. zkCoins is a
 client-side-validated transfer protocol whose only on-chain footprint is a
 constant 64 bytes per transaction. zkBTC is a bitcoin-backed token on that
-protocol whose reserve is secured by fraud proofs rather than custody. The
-system is secure as long as the following assumptions hold: honest majority
-hashpower for Bitcoin's ordering of nullifiers; for the reserve, one honest
-operator per backing group at setup (key deletion), at least one honest live
-challenger acting within each challenge window, sound proof-system and BitVM2
-graph cryptography; and, where an asset designates one, an honest gatekeeper at
-mint time.
+protocol whose reserve is secured by fraud proofs rather than custody. Honest
+majority hashpower orders the nullifiers. Operators cannot steal the reserve
+as long as one honest operator per backing group deletes its key at setup, at
+least one honest live challenger acts within each challenge window, and the
+circuit and BitVM2 graph cryptography are sound. Mint canonicity and
+operator-set diversity are separate residuals; a designated gatekeeper can
+check both.
 
 // ============================================================================
 // 2. Transactions
@@ -662,23 +662,22 @@ MoveToBacked is buried at least $D_"mint"$ blocks deep (deep finality, on the
 order of 2016 blocks) and that the vault instance matches the asset's terms:
 the operator-registration policy root, amount equality with the vault output,
 and a one-shot mint key so each vault mints exactly once. Circulating supply is
-then a conditional upper bound against the public vault set under the reserve
-safety assumptions, not an unconditional invariant of the chain alone.
+then a conditional upper bound against the public vault set on the
+canonical chain, not an unconditional invariant of the chain alone.
 
-The gatekeeper is optional, per-asset, and load-bearing when present. Pure
+The gatekeeper is optional and per-asset. Pure
 in-circuit proof-of-work depth cannot prove canonicity (a private fork can be
 deep) and cannot distinguish one party's many keys from many parties (a Sybil
 operator epoch). Two independent backing-drain attacks follow: private-fork mint
 settlement (Attack A), and a self-controlled operator epoch drained via ordinary
-redemption (Attack B). A designated gatekeeper closes both at mint time only.
+redemption (Attack B). A designated gatekeeper can close both at mint time only.
 It co-signs a mint only after confirming, on its own canonical Bitcoin view, the
 backing transaction and the epoch's registration commitment (Attack A), and only
 if it vouches that the epoch's operator set contains at least one independent
 honest signer (Attack B). It has no key on the vault, no role in transfers or
 redemption, and cannot freeze, seize, or redirect. It can only refuse new mints.
 A negligent or compromised gatekeeper that skips these checks enables Attacks A
-and B; gatekeeper integrity at mint is therefore a backing-safety dependency in
-gated mode. Without a gatekeeper, a pooled open-registration reserve is unsound.
+and B.
 
 Operators register openly. Anyone may register per deposit epoch by posting a
 bond with proof of key possession. Registrations commit into a policy root. A
@@ -710,7 +709,7 @@ contribution, a depositor-side loss path. With no council and no admin keys, a
 freeze under the stated assumptions can be permanent absent a future covenant
 upgrade. "Not theft" does not mean "recoverable."
 
-We consider the probability of a private-fork mint settlement in the same terms
+We consider the probability of a canonical-chain catch-up in the same terms
 as Nakamoto's attacker analysis [1]. The race between the honest chain and an
 attacker is a Binomial Random Walk. The probability of an attacker catching up
 from $z$ blocks behind, when $p$ is the probability an honest node finds the
@@ -839,10 +838,13 @@ finality yields, for three attacker shares:
 ]
 #set par(first-line-indent: 1em, leading: 0.65em)
 
-At deep finality the private-fork channel is economically closed even for a 45\%
-attacker: $z = 2016$ yields probabilities on the order of $10^(-176)$ and
-smaller. The residual mint risk is therefore the canonical-view and Sybil pair
-closed by the gatekeeper, not raw proof-of-work catch-up.
+At deep finality catch-up against the honest chain is economically closed even
+for a 45\% attacker: $z = 2016$ yields probabilities on the order of
+$10^(-176)$ and smaller. That is not Attack A: a private fork can still be
+deep without catching the honest chain. The residual mint risk is therefore
+canonicity of the proven chain and the distinction between one party's keys
+and many parties, not raw proof-of-work catch-up. A designated gatekeeper can
+check both at mint time.
 
 // ============================================================================
 // 12. Conclusion
