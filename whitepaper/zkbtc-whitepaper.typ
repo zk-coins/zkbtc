@@ -1,9 +1,9 @@
-// zkBTC: Fully Private, Trust-Free Bitcoin
+// zkBTC: Fully Private, Trustless Bitcoin
 // Structural homage to Satoshi Nakamoto, Bitcoin (2008).
 // Built-ins only; no imports.
 
 #set document(
-  title: "zkBTC: Fully Private, Trust-Free Bitcoin",
+  title: "zkBTC: Fully Private, Trustless Bitcoin",
   author: "TaprootFreak",
 )
 #set page(
@@ -92,7 +92,7 @@
 #align(center)[
   #v(0.25em)
   #text(size: 17.5pt, weight: "bold")[
-    zkBTC: Fully Private, Trust-Free Bitcoin
+    zkBTC: Fully Private, Trustless Bitcoin
   ]
   #v(0.8em)
   #text(size: 11pt)[TaprootFreak]
