@@ -149,10 +149,12 @@ An organisation **MAY** also operate an ordinary operator node if and only if la
    |                     |                        |   (backing-only vault;
    |                     |                        |    no refund leaf)
    |                     |                        |                      |
-   |  [if gatekeeper:] SoF/vault + CANONICAL view (MoveToBacked depth ≥ D_mint
+   |  [if gatekeeper:] SoF + CANONICAL view (MoveToBacked depth ≥ D_mint
    |                   AND reg_root_E on gatekeeper's canonical chain;
    |                   deposit not refunded)
-   |                   gatekeeper withholds Pk_mint sig until R-04 holds;
+   |                   gatekeeper withholds Pk_mint sig until R-04 holds
+   |                   and epoch-relative R-09 holds (sibling/fork rejected;
+   |                   ancestor-epoch mints still allowed);
    |                   then signs m_state under Pk_mint
    |  [if no gatekeeper:] depositor signs m_state under depositor-anchored Pk_mint
    |                      (no external canonical observer — Attack A residual;
@@ -352,7 +354,7 @@ Normative properties:
 3. In **no-gatekeeper + open registration + pooled without R-09** (**Corner C**), Attack B is open; the economic bond alone is insufficient; the combination is **UNSOUND** and **MUST NOT** be deployed or marketed as trust-minimized or as effectively trustless (§3.2.1.2 / §5 residual 9 / §6.4).
 4. In **no-gatekeeper + closed genesis-enumerated set + pooled** (**Corner B**), Attack B is closed by genesis enumeration under launch gate A(1), but **Attack A is still only mitigated by operators-as-best-effort-oracle / `D_mint`** — and the profile **abandons open join**. Closing the operator set does **not** close Attack A.
 
-**Honest cost of growth-only S:** a dead or grieving admitted operator freezes **new** mints (N-of-N cannot complete) until they rotate a live key; **existing** coins remain exit-able along that vault's already-presigned 1-of-N graph. That is the safety-over-mint-liveness trade-off and **MUST** be stated, not hidden. Attack A remains closed **cleanly only** by R-04 (gated mode) — independent of R-09.
+**Honest cost of growth-only S:** a **lost** identity key **permanently** freezes **new** vaults (rotation requires `pk_old`). A **grieving** admitted operator who still holds `pk_old` freezes **new** mints until they rotate a live key or resume presign. **Existing** coins remain exit-able along that vault's already-presigned 1-of-N graph. That is the safety-over-mint-liveness trade-off and **MUST** be stated, not hidden. Attack A remains closed **cleanly only** by R-04 (gated mode) — independent of R-09.
 
 Changing policy P produces a different `operator_set_root` and therefore a **different** `asset_id` (new asset).
 
@@ -418,7 +420,7 @@ Because the accumulator admits `(Pk_mint, R)` only under a BIP-340 signature ove
 
 **Signing order / mint-signing checklist (normative — R-03 / R-04 / R-09; MUST).** "Verify the full mint proof before signing" is **circular**: the completed proof `C` embeds the gatekeeper's BIP-340 signature over `m_state` (S2C over `H(ProofData)`), so the proof cannot exist before the signature. The correct order is:
 
-1. The gatekeeper verifies the mint's witness/inputs — the LCP-proven vault deposit (real, ≥ depth, to the asset's `instantiate`d vault), the committed recipient, `operator_set_root` membership and **epoch-relative R-09** (`reg_root_E` vs `reg_root_{E-1}` on the unique published lineage — §3.1.2 item 1) against the asset-bound root, and its own source-of-funds / legitimacy policy — **NOT** a completed proof. Optional R-08 MAY be applied here as belt-and-suspenders.
+1. The gatekeeper verifies the mint's witness/inputs — the LCP-proven vault deposit (real, ≥ depth, to the asset's `instantiate`d vault), the committed recipient, `operator_set_root` membership and **epoch-relative R-09** (`reg_root_E` vs `reg_root_{E-1}` on the unique published lineage — §3.1.2 item 1) against the asset-bound root, and its own source-of-funds policy — **NOT** a completed proof. Optional R-08 MAY be applied here as belt-and-suspenders.
 2. **Canonical confirmation (MUST — R-04 / Attack A):** on the gatekeeper's **own canonical Bitcoin view**, confirm that (i) `MoveToBacked` is present at depth ≥ `D_mint` on the **canonical** chain, (ii) the deposit output was **not** refunded on the canonical chain, and (iii) `reg_root_E` is the canonical registration commitment for the epoch (same R-04 duty as `MoveToBacked` — §4.1.2). **Withhold** the mint signature until all hold.
 3. **Operator-set growth-only (MUST — R-09 / Attack B):** confirm that `reg_root_E` is a valid growth-only successor of `reg_root_{E-1}` on this asset's unique published epoch lineage (nobody already in S_{E-1} omitted; KeyAgg of `{pk_{E,i}}` of S_E). **Withhold** the mint signature if that epoch-relative R-09 check fails (sibling/fork `reg_root`). **MUST NOT** withhold solely because a later epoch head is published or later joiners are missing from an ancestor-epoch `reg_root_E`. Optional **R-08:** the gatekeeper **MAY** additionally withhold if it assesses S_E as a self-controlled Sybil set; this is belt-and-suspenders, not the close.
 4. Only then does the gatekeeper produce the transition-authorization **signature** (`sk_mint` S2C over `m_state` committing `H(ProofData)`).
@@ -881,7 +883,7 @@ This section specifies the flagship open-operator property of REQ-4 **and** the 
 
 7. **Liquidity / competition.** Multiple registered operators compete to front (fee ≤ `max_fee`); the redeeming holder submits the payout template to **any** operator (§4.3). No operator has a privileged claim.
 
-8. **Dead / grieving admitted operators (MUST state).** An admitted operator who loses their key or refuses later presigns **cannot be dropped**. New vaults freeze until they rotate in place (old key signs the new key) or mint liveness stays halted. Existing coins of already-presigned vaults remain exit-able via 1-of-N of that vault's S_E. Safety over mint liveness.
+8. **Dead / grieving admitted operators (MUST state).** An admitted operator **cannot be dropped**. A **lost** identity key **permanently** freezes **new** vaults (rotation requires `pk_old`). A **grieving** operator who still holds `pk_old` freezes new vaults until they rotate in place or resume presign. Existing coins of already-presigned vaults remain exit-able via 1-of-N of that vault's S_E. Safety over mint liveness.
 
 ### 4.1.2 Registration commitment, key aggregation, and ceremony robustness
 
@@ -1568,6 +1570,7 @@ This subsection is informative — an idea for how deployments and future versio
 | 2026-08-20 | Gatekeeper R-09 checks are **epoch-relative** (`reg_root_E` vs `reg_root_{E-1}` on the unique published lineage). After a later epoch is published, ancestor-epoch mints of already-presigned unminted vaults remain valid; the gatekeeper **MUST NOT** withhold them solely for missing later joiners. Sibling/fork `reg_root` values remain invalid. Aligns §3.2.1.1, clause (e), §4.1.2, §4.2, and Appendix A D2 with R-09 item 1 uniqueness. |
 | 2026-08-20 | Lost identity keys **permanently** freeze new vaults: in-place rotation requires `pk_old`. Already-presigned vaults remain 1-of-N-exitable. |
 | 2026-08-20 | Drop leftover "vault-legitimacy" from the gatekeeper SoF duty (§2.1 / §6.1 / §6.6): legitimacy is in-circuit R-09. Clarify Appendix A D2 that the gatekeeper R-09 withhold is additional, not the Attack-B close. |
+| 2026-08-20 | Split lost-key (permanent freeze of new vaults) from grieving (freeze until rotate/resume). §2.3 ASCII: SoF only, withhold until R-04 **and** epoch-relative R-09. Checklist SoF no longer says "legitimacy policy". |
 
 ---
 
