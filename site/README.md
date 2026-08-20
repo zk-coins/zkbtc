@@ -13,13 +13,13 @@ entrance that carries the metadata and points to the paper.
 
 | File | Bytes | Role |
 | --- | ---: | --- |
-| `index.html` | 8,145 | The page. Self-contained: CSS inline, no images, no JavaScript, no external requests. |
+| `index.html` | 7,770 | The page. Self-contained: CSS inline, no images, no JavaScript, no external requests. |
 | `og.png` | 244,397 | Open Graph preview card, 1200×630. |
 | `fonts/*.woff2` | 67,824 | IBM Plex Sans 400 and IBM Plex Mono 400/600/700 — four files, three distinct weights. |
 | `fonts/LICENSE.txt` | 4,429 | SIL Open Font License 1.1, under which IBM Plex is distributed. |
 | `README.md` | this file | |
 
-Total: 329,297 bytes (322 KiB), of which the card is 74 %.
+Total: 329,227 bytes (322 KiB), of which the card is 74 %.
 
 ## Where the text comes from
 
@@ -35,7 +35,18 @@ where a quotation spans several.
 | First paragraph, the card, `og:description`, `og:image:alt` | lines 110–112 | Yes, including the conditional `would allow`. |
 | Second paragraph | lines 150–151 | Yes. |
 | Highlighted block | lines 861–863 | Yes — two sentences that stand consecutively in the paper's conclusion, quoted as one block. |
-| Footer maturity note | lines 865–866 | A verbatim fragment, `awaits implementation and external audit`, lifted out of the sentence *"the design is specified normatively in [8] and awaits implementation and external audit."* It is a fragment, not a sentence: the subject stays in the paper. The citation marker `[8]` is not carried over, since the sentence that held it is not on the page. |
+
+### What the page does not say
+
+The page carries **no statement about the maturity of the design**. It does not claim the design
+is implemented, audited or in production, and it does not claim the opposite either. Both
+documents it links to state their own status in their own opening: the whitepaper's conclusion
+records that the design *"awaits implementation and external audit"*, and the specification's
+first status line reads *"Design specification. No code."*
+
+This is deliberate. It is worth knowing when reading the page, and worth re-examining if the
+page ever gains a call to action — a page that asks a reader to do something with zkBTC would
+need to state the stage the design is at.
 
 ### Strings that are **not** quotations
 

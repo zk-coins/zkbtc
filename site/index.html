@@ -201,17 +201,10 @@
 
   footer {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    margin: 28px 0 0;
-    min-width: 0;
-  }
-  .foot-links {
-    display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 0 10px;
+    margin: 28px 0 0;
     min-width: 0;
   }
   footer a {
@@ -229,13 +222,6 @@
     font-size: 15px;
     line-height: 1;
     pointer-events: none;
-  }
-  .maturity {
-    margin: 0;
-    font-family: var(--mono);
-    font-size: 15px;
-    line-height: 1.4;
-    color: #857f76;
   }
 
   @media (max-width: 419px) {
@@ -267,12 +253,9 @@
       </div>
     </main>
     <footer>
-      <div class="foot-links">
-        <a href="https://zkcoins.com">zkCoins protocol</a>
-        <span class="sep" aria-hidden="true">·</span>
-        <a href="https://github.com/zk-coins/zkbtc">Repository</a>
-      </div>
-      <p class="maturity">awaits implementation and external audit</p>
+      <a href="https://zkcoins.com">zkCoins protocol</a>
+      <span class="sep" aria-hidden="true">·</span>
+      <a href="https://github.com/zk-coins/zkbtc">Repository</a>
     </footer>
   </div>
 </body>
