@@ -693,7 +693,7 @@ Circuit- und Graph-Kryptographie) ist der schlimmste Fall ein Einfrieren
 (das Einlösen wartet auf einen lebenden Operator), nicht Diebstahl. Ein
 kritischer Circuit- oder Graph-Soundness-Fehler ist der Diebstahlfall.
 Einwandfreie Circuit- und Graph-Kryptographie bleibt eine stehende
-Annahme. Es gibt kein externes-Audit-Gate.
+Annahme.
 
 Ehrliche Residuen bleiben, auch wenn Diebstahl geschlossen ist. Die
 Mitunterschrift des Einlegers macht einen getresorten Beitrag zugestimmt;

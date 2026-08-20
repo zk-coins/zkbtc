@@ -706,7 +706,7 @@ assumptions (one-of-N setup honesty, at least one honest live challenger acting
 within the window, and sound circuit and graph cryptography), the worst case is
 a freeze (redemption waits for a live operator), not theft. A critical circuit
 or graph soundness bug is the theft case. Sound circuit and graph
-cryptography is a standing assumption. There is no external-audit gate.
+cryptography is a standing assumption.
 
 Honest residuals remain even when theft is closed. The depositor's co-signature
 makes a vaulted contribution consented; a gatekeeper that withholds its mint
