@@ -109,13 +109,19 @@
   Nullifier fester Grösse von 64 Byte, der Doppelausgaben verhindert, ohne
   ein globales Betragsbuch. zkBTC ist ein eins-zu-eins durch Bitcoin
   gedecktes Token auf diesem Protokoll. Die Reserve liegt in Tresoren, die
-  nur entlang vorsignierter BitVM2-Betrugsnachweis-Pfade ausgebbar sind,
-  optional unter einem Gatekeeper je Asset prägbbar und von jedem Inhaber
-  einlösbar, solange einer aus einer offenen, erlaubnisfreien Menge von
-  Operatoren lebt. Unter den genannten Ehrlichkeits- und
+  nur entlang vorsignierter BitVM2-Betrugsnachweis-Pfade ausgebbar sind.
+  Jeder darf in die Operator-Menge; diese Menge wächst nur; jeder neue Tresor
+  wird von allen aktuellen Operatoren unterschrieben, sodass ein Inhaber, der
+  sich vor dem ersten Mint (vor dem Einrichten dieses Tresors) anmeldet, der
+  ehrliche Unterzeichner jedes Tresors
+  ist und den eigenen Ausgang bedienen kann. Ein Gatekeeper, wenn bestimmt,
+  darf neue Einlagen prüfen und kann nicht einfrieren, beschlagnahmen oder
+  den Ausgang blockieren. Unter den genannten Ehrlichkeits- und
   Lebendigkeitsannahmen (1-aus-N beim Einrichten, mindestens ein ehrlicher
   lebender Challenger in jedem Widerspruchsfenster, und einwandfreie
   Circuit- und Graph-Kryptographie) kann kein Operator die Reserve stehlen.
+  zkBTC ist in diesem Sinn effektiv vertrauensfrei: du bist Operator; du
+  vertraust niemandem sonst dein Bitcoin an.
 ]
 
 #v(0.4em)
@@ -141,10 +147,13 @@ ist. zkBTC ist ein durch Bitcoin gedecktes Token darauf, dessen Reserve
 durch Betrugsnachweise gesichert ist, nicht durch Verwahrung. Ehrliche
 Mehrheit der Hashrate ordnet die Nullifier. Operatoren können die Reserve
 nicht stehlen, solange ein ehrlicher Operator je Deckungsgruppe seinen
-Schlüssel beim Einrichten löscht, mindestens ein ehrlicher lebender
+Epoch-Signaturschlüssel beim Einrichten löscht, mindestens ein ehrlicher lebender
 Challenger in jedem Fenster handelt und Circuit sowie BitVM2-Graph
-einwandfrei sind. Kanonizität des Mints und Vielfalt der Operator-Menge
-sind eigene Residuen; ein bestimmter Gatekeeper kann beides prüfen.
+einwandfrei sind. Der Inhaber, der vor dem ersten Mint in die kumulative
+Operator-Menge eintritt, _ist_ dieser ehrliche Operator für jeden Tresor.
+Kanonizität des Mints (ein Mint gegen eine private Gabel) ist ein eigenes
+Residuum; ein bestimmter Gatekeeper kann es nur zur Mint-Zeit prüfen. Ein
+Gatekeeper ist nicht das, was zkBTC vertrauensfrei macht.
 
 = Transaktionen
 
@@ -627,9 +636,10 @@ Der Tresor ist eine Taproot-Ausgabe mit NUMS-Internschlüssel, es gibt also
 keinen Key-Path-Spend. Seine einzigen Ausgabepfade sind ein geordneter,
 N-aus-N vorsignierter BitVM2-Transaktionsgraph (Assert, Challenge, Disprove,
 Payout), fest beim Einrichten der Einlage. Nach dem Einrichten werden die
-Signaturschlüssel gelöscht. Der Tresor hat dann überhaupt keinen lebenden
-Unterzeichner. Unter ehrlichem 1-aus-N-Löschen kann keine Koalition etwas
-ausserhalb des Graphen unterschreiben.
+Epoch-Signaturschlüssel gelöscht; Identitätsschlüssel bleiben. Der Tresor hat
+dann für diesen Epoch-Graphen keinen lebenden Unterzeichner. Unter ehrlichem
+1-aus-N-Löschen des Epoch-Schlüssels kann keine Koalition etwas ausserhalb
+des Graphen unterschreiben.
 
 Peg-in (Mint) läuft so. Einleger und Operatoren unterschreiben gemeinsam
 eine MoveToBacked-Transaktion, die die Einlage unter den Tresor legt. Der
@@ -642,31 +652,28 @@ Einmal-Mintschlüssel, sodass jeder Tresor genau einmal prägt. Der Umlauf
 ist dann eine bedingte Obergrenze gegen die öffentliche Tresormenge auf der
 kanonischen Kette, kein unbedingtes Invariant der Kette allein.
 
-Der Gatekeeper ist optional und je Asset. Reine Proof-of-Work-Tiefe im
-Circuit beweist keine Kanonizität (eine private Gabel kann tief sein) und
-kann die vielen Schlüssel einer Partei nicht von vielen Parteien
-unterscheiden (eine Sybil-Operator-Epoche). Zwei unabhängige Drain-Angriffe
-auf die Deckung folgen: Mint-Abrechnung gegen eine private Gabel (Angriff
-A) und eine selbst kontrollierte Operator-Epoche, die über gewöhnliches
-Einlösen geleert wird (Angriff B). Ein bestimmter Gatekeeper kann beide nur
-zur Mint-Zeit schliessen. Es unterschreibt einen Mint erst, nachdem es auf
-seiner eigenen kanonischen Bitcoin-Sicht die Deckungs-Transaktion und die
-Anmeldeverpflichtung der Epoche bestätigt hat (Angriff A), und nur wenn es
-verbürgt, dass die Operator-Menge der Epoche mindestens einen unabhängigen
-ehrlichen Unterzeichner enthält (Angriff B). Es hat keinen Schlüssel auf
-dem Tresor, keine Rolle bei Transfers oder Einlösen und kann nicht
-einfrieren, beschlagnahmen oder umleiten. Es kann nur neue Mints
-ablehnen. Ein nachlässiger oder kompromittierter Gatekeeper, der diese
-Prüfungen überspringt, ermöglicht Angriff A und B.
+Die Operator-Menge ist offen, erlaubnisfrei und wächst nur. Jeder darf
+beitreten, indem er eine Kaution mit Beweis des Schlüsselbesitzes
+hinterlegt. Niemand geht. Jeder neue Tresor ist N-aus-N über die aktuelle
+volle Menge. Ein Inhaber, der sich vor dem ersten Mint anmeldet, ist der
+ehrliche Unterzeichner jedes Tresors: ein späterer Sybil-Club kann ihn
+nicht weglassen, und er unterschreibt keinen Graphen, der einen Tresor an
+einen Dieb zahlt. Das schliesst das Ablassen durch selbst kontrollierte
+Operatoren (Angriff B). Anmelden vor dem ersten Mint; früher geprägte
+Münzen sind ein untrusted Prefix, weil das Token fungibel ist.
 
-Operatoren melden sich offen an. Jeder darf sich je Einlage-Epoche anmelden,
-indem er eine Kaution mit Beweis des Schlüsselbesitzes hinterlegt.
-Anmeldungen verpflichten sich in eine Policy-Wurzel. Ein Inhaber darf sich
-anmelden und den eigenen Ausgang bedienen. Die Epochenaufnahme ist
-zweistufig: eine Policy-Wurzel nagelt Kautionsklasse und
-Anti-Dominanz-Regel fest, die Anmeldung je Epoche verpflichtet die
-zugelassene Menge. Die Bedingungen eines Assets nageln also die
-Anmelderegel fest, keine feste Operatorliste.
+Der Gatekeeper ist optional und je Asset. Reine Proof-of-Work-Tiefe im
+Circuit beweist keine Kanonizität (eine private Gabel kann tief sein). Das
+ist Angriff A, ein Residuum der Bitcoin-Klasse, gemildert durch tiefe
+Finalität in der Grössenordnung 2016 Blöcke, sauber geschlossen nur wenn
+ein bestimmter Gatekeeper seine Mint-Signatur zurückhält, bis er auf seiner
+eigenen kanonischen Bitcoin-Sicht die Deckungs-Transaktion und die
+Anmeldeverpflichtung bestätigt hat. Er hat keinen Schlüssel auf dem Tresor,
+keine Rolle bei Transfers oder Einlösen und kann nicht einfrieren,
+beschlagnahmen oder umleiten. Er kann nur neue Mints ablehnen. Er ist nicht
+der Schluss von Angriff B und nicht das, was zkBTC vertrauensfrei macht.
+Ein nachlässiger Gatekeeper, der die Kanonizitätsprüfung überspringt,
+ermöglicht Angriff A, nicht das Ablassen späterer Tresore.
 
 Peg-out (Einlösen) ist zuerst verbrennen. Der Einlöse-Übergang des Inhabers
 zerstört die Münze und veröffentlicht eine Einlösekennung (ihren
@@ -834,9 +841,10 @@ einen 45-Prozent-Angreifer wirtschaftlich geschlossen: $z = 2016$ liefert
 Wahrscheinlichkeiten der Ordnung $10^(-176)$ und kleiner. Das ist nicht
 Angriff A: eine private Gabel kann tief sein, ohne die ehrliche Kette
 einzuholen. Das Residual-Mint-Risiko ist daher die Kanonizität der
-bewiesenen Kette und die Unterscheidung zwischen den Schlüsseln einer
-Partei und vielen Parteien, nicht rohes Proof-of-Work-Aufholen. Ein
-bestimmter Gatekeeper kann beides zur Mint-Zeit prüfen.
+bewiesenen Kette, nicht rohes Proof-of-Work-Aufholen. Ein bestimmter
+Gatekeeper kann die Kanonizität zur Mint-Zeit prüfen. Das
+Sybil-Operator-Ablassen schliesst die nur-wachsende Operator-Menge, nicht
+der Gatekeeper.
 
 = Schluss
 
@@ -846,10 +854,13 @@ Zustandsübergänge. Bitcoin ordnet Nullifier fester Grösse, sodass
 Doppelausgaben öffentlich erkennbar sind, ohne Beträge preiszugeben.
 Gültigkeitsbeweise ersetzen die globale Prüfung eines Wertbuchs; der
 On-Chain-Abdruck bleibt konstant. Die Reserve ist durch vorsignierte
-Betrugsnachweis-Pfade mit offener Operator-Menge gesichert: unter 1-aus-N
-beim Einrichten, mindestens einem ehrlichen lebenden Challenger in jedem
-Fenster und einwandfreier Kryptographie können Operatoren nicht stehlen. Ein
-Gatekeeper, wenn einer bestimmt ist, handelt nur an der Mint-Grenze und
+Betrugsnachweis-Pfade mit offener, nur-wachsender Operator-Menge
+gesichert: ein Inhaber, der sich vor dem ersten Mint anmeldet, ist der
+ehrliche Unterzeichner jedes Tresors und kann den eigenen Ausgang bedienen.
+Unter 1-aus-N beim Einrichten, mindestens einem ehrlichen lebenden
+Challenger in jedem Fenster und einwandfreier Kryptographie können
+Operatoren nicht stehlen. In diesem Sinn ist zkBTC effektiv vertrauensfrei.
+Ein Gatekeeper, wenn einer bestimmt ist, handelt nur an der Mint-Grenze und
 kann Transfers oder Einlösen nicht einfrieren. Der Ausgang hängt an der
 Lebendigkeit eines angemeldeten Operators, nie an einer Erlaubnis. Die
 Garantien sind an die aufgezählten Annahmen gebunden. Dieses Paper ist eine
