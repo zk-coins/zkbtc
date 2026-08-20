@@ -179,7 +179,7 @@ Operators are **open-registered into the cumulative growth-only set S** (R-09 / 
 | Mint settles | Clauses (a)–(h); `(Pk_mint, R)`; LCP proves `MoveToBacked` confirmed at depth ≥ `D_mint` + N-of-N + recursive `operator_set_root` | Observes mint; backing-only vault UTXO is the settled backing (proven in-circuit; no host-side freshness re-check) |
 | Holder transfer | Ordinary parent specification.md §2 | None |
 | Redeem settles | `redeem_commitment` (incl. `max_fee`); `(Pkᵢ, Rᵢ)` | Accepts opening; fronts payout; claim/challenge with claim-marker `(Pkᵢ, Rᵢ, payout_txid, payout_vout)` (logical first-marker — NH-02) |
-| Audit | Upper-bound circulating ≤ vault UTXOs **conditional on** the reserve-safety assumptions of §5 (1-of-N + R-09 + R-04 when gated + ≥1 honest challenger); a successful **Attack A**, **Attack B** (only if R-09 is absent — Corner C), **or** unchallenged fraudulent/duplicate reimbursement breaks it; exact needs published aggregate attestation | Public vault UTXO set + optional balance/aggregate attestations |
+| Audit | Upper-bound circulating ≤ vault UTXOs **conditional on** the reserve-safety assumptions of §5 (1-of-N + R-09 + no successful Attack A (R-04 only when gated) + ≥1 honest challenger); a successful **Attack A**, **Attack B** (only if R-09 is absent — Corner C), **or** unchallenged fraudulent/duplicate reimbursement breaks it; exact needs published aggregate attestation | Public vault UTXO set + optional balance/aggregate attestations |
 
 ### 2.5 Competing tokens / market
 
