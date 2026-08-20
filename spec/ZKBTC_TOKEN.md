@@ -1290,7 +1290,7 @@ Restatement of §4.0 as a checklist (two remaining gates — both **MUST** clear
 4. **NEW-04 packing.** The sole-funder / single-party-authorised / claimant-commitment checks of §3.5.5 / §4.3.2 clause 12 **MUST** be packed into the converted public inputs without silently weakening them.
 5. **First-valid epoch successor.** The converted graph / LCP **MUST** enforce the first-valid `epoch_anchor_id` rule of §4.1.2.1 (unique R-09 lineage).
 
-Checking the G3 box without (1)–(4) is a security-relevant lie.
+Checking the G3 box without (1)–(5) is a security-relevant lie.
 
 ---
 
