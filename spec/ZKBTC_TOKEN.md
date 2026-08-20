@@ -924,18 +924,19 @@ This pins the **byte layout of the commitments** the circuit and Bitcoin observe
 
 ```
 operator_set_root := Hc("zkBTC/v2/PolicyP",
-    join_rule          ||  // u8: 0x01 = open R-09 (product default); 0x02 = closed genesis-enumeration (Corner B only)
-    r09_flags          ||  // u8: bit0 growth-only, bit1 no-leave, bit2 no-kick-after-admission; product default = 0x07
-    bond_class_sats    ||  // u64 big-endian; identity-bound class, not the per-epoch amount
-    anti_dom_numer     ||  // u8
-    anti_dom_denom     ||  // u8; economic target only — MUST NOT be an in-circuit unique-key ≥-half reject (§4.1.2.1)
-    keyagg_rule        ||  // u8: 0x01 = BIP-327 MuSig2 KeyAgg, keys lexicographically sorted
-    pop_rule           ||  // u8: 0x01 = identity-bound PoP, domain tag "zkBTC/v2/PoP"
-    r08_duty               // u8: 0x00 = none (product default); 0x01 = gated optional R-08 duty
+    join_rule               ||  // u8: 0x01 = open R-09 (product default); 0x02 = closed genesis-enumeration (Corner B only)
+    r09_flags               ||  // u8: bit0 growth-only, bit1 no-leave, bit2 no-kick-after-admission; product default = 0x07
+    bond_class_sats         ||  // u64 big-endian; identity-bound class, not the per-epoch amount
+    anti_dom_numer          ||  // u8
+    anti_dom_denom          ||  // u8; economic target only — MUST NOT be an in-circuit unique-key ≥-half reject (§4.1.2.1)
+    keyagg_rule             ||  // u8: 0x01 = BIP-327 MuSig2 KeyAgg, keys lexicographically sorted
+    pop_rule                ||  // u8: 0x01 = identity-bound PoP, domain tag "zkBTC/v2/PoP"
+    r08_duty                ||  // u8: 0x00 = none (product default); 0x01 = gated optional R-08 duty
+    genesis_keys_root           // 32; all-zero when join_rule = 0x01; Merkle root of the genesis-enumerated identity keys when join_rule = 0x02 (same tree rule as reg_root_E, leaves = x-only identity keys in lex order)
 )
 ```
 
-Product-default field values (frozen into `asset_id` via `operator_set_root`): `join_rule = 0x01`, `r09_flags = 0x07`, `bond_class_sats = 200000000` (2 BTC, Clementine-class), `anti_dom_numer = 1`, `anti_dom_denom = 2`, `keyagg_rule = 0x01`, `pop_rule = 0x01`, `r08_duty = 0x00`. Changing any of these fields is a new policy and a new `asset_id`. The **per-epoch** bond amount `B_E` **MUST** be ≥ `bond_class_sats` and **MAY** be raised for a later epoch without changing `asset_id` (§4.4).
+Product-default field values (frozen into `asset_id` via `operator_set_root`): `join_rule = 0x01`, `r09_flags = 0x07`, `bond_class_sats = 200000000` (2 BTC, Clementine-class), `anti_dom_numer = 1`, `anti_dom_denom = 2`, `keyagg_rule = 0x01`, `pop_rule = 0x01`, `r08_duty = 0x00`, `genesis_keys_root = 32×0x00`. For Corner B, `join_rule = 0x02` and `genesis_keys_root` **MUST** be the non-zero Merkle root of that closed key list (two different enumerations **MUST** yield different roots / `asset_id`s). Changing any of these fields is a new policy and a new `asset_id`. The **per-epoch** bond amount `B_E` **MUST** be ≥ `bond_class_sats` and **MAY** be raised for a later epoch without changing `asset_id` (§4.4).
 
 **Anti-domination (MUST — weaker than R-09; economic, not a unique-key headcount).** Distinct `identity_pubkey` values are treated as distinct parties in-circuit: there is **no** clustering oracle. A validity predicate that rejects a `reg_root_E` when any one identity is ≥ `anti_dom_numer/anti_dom_denom` of `|S|` is therefore **forbidden** — at the product fraction 1/2 it would reject every `|S| = 2` set (`1/2 ≥ 1/2`) and, with one key per party, would never fire for `|S| ≥ 3`. When `|S| = 1` the fraction is **vacuous** (genesis self-operator). Policy P still **commits** `anti_dom_numer/denom = 1/2` as the **economic** target: posting K identities costs K · `B_E`, so controlling ≥ half of S costs at least `ceil(|S|/2) · B_E` under the honest-registration assumption. That cost **MUST** remain in the 2 BTC class. Anti-domination is a both-modes economic defence; **Attack B is closed by R-09**, not by this fraction.
 
@@ -949,7 +950,7 @@ leaf_payload :=
     pk_E_i              ||  // 32-byte x-only epoch signing key
     E                   ||  // u64 big-endian
     operator_set_root   ||  // 32
-    bond_txid           ||  // 32; Bitcoin txid of the live bond output (internal byte order as in the transaction)
+    bond_txid           ||  // 32; Hash256 of the bond transaction in Bitcoin COutPoint / outpoint-serialization byte order (the 32 bytes that precede vout in a serialized outpoint; NOT RPC display order)
     bond_vout           ||  // u32 big-endian
     pop_sig             ||  // 64; BIP-340 PoP of §4.1.2.1 "PoP message" (item 1 / item 3 in-circuit)
     rotation_flag       ||  // u8: 0x00 = same identity as in reg_root_{E-1} or genesis joiner;
@@ -960,13 +961,19 @@ leaf_payload :=
 leaf := Hc("zkBTC/v2/RegLeaf", leaf_payload)
 ```
 
-Leaves are ordered lexicographically by `identity_pubkey` (unique; duplicates **MUST** be rejected — item 2). The Merkle tree is the NEW-03 **left-complete balanced** binary tree over that ordered list: sibling hash `Hc("zkBTC/v2/RegNode", left || right)`; an odd last node is duplicated as the right child (same discipline as §3.1.1 tree shape). `reg_root_E` is the Merkle root.
+Leaves are ordered lexicographically by `identity_pubkey` (unique; duplicates **MUST** be rejected — item 2). The Merkle tree **MUST** follow the NEW-03 tree-shape rule of §3.1.1 point 3 over that ordered list, except the pair-combiner is `Hc("zkBTC/v2/RegNode", min(a,b) ‖ max(a,b))` (lexicographic sort **within each pair**, same discipline as BIP-341 `H_tapbranch`). If a level has an odd count, the last unpaired hash is **promoted unchanged** — **MUST NOT** be duplicated as a right child. `reg_root_E` is the Merkle root.
 
 **R-09 superset proof.** For genesis (`E = 0`) there is no predecessor. For `E ≥ 1`, a valid formation **MUST** exhibit, for every identity-party in `reg_root_{E-1}`, a Merkle path in `reg_root_E` to a leaf whose `identity_pubkey` is that party **or** whose `rotation_flag = 0x01` and `pk_old` is that party's previous identity key. A `reg_root_E` that omits any such path is **invalid** under P. Epoch signing keys of E−1 are **not** a superset obligation.
 
-**Epoch-anchor publication.** `reg_root_E` **MUST** appear on-chain as a 32-byte commitment in a dedicated epoch-anchor transaction's first `OP_RETURN` output (`0x6a` `0x20` ‖ `reg_root_E`), with the remaining outputs paying the epoch's unslashed-bond return connectors as the compiler template requires. Alternative commitment inside a `MoveToBacked` graph-anchor leaf is permitted only if that leaf commits the same 32 bytes; the dedicated `OP_RETURN` form is the **default pin**. Sibling/fork `reg_root` values that do not extend the unique published lineage are invalid (§3.1.2 item 1).
+**Epoch-anchor publication.** Let `prev_root` be 32×`0x00` for `E = 0`, else `reg_root_{E-1}`. Define
 
-**Registration-output (bond) semantic pin.** The bond UTXO is a P2TR with the vault NUMS internal key of §3.1.1 (no key-path). Its script tree **MUST** contain exactly: (i) a **slash** path spendable only along the epoch's BitVM2 proven-fraud / grief-default graph (bond forfeited; sequencing-connector burn of §4.1 role-note (c)); (ii) a **return** path to the registrant's identity-keyed output after the epoch's claim/challenge horizon if unslashed. Exact compiler script bytes for (i) and (ii) remain item-7 launch-pinned. Amount **MUST** be ≥ `B_E`. No `pk_{E,i}` without a live bond output.
+`epoch_anchor_id := Hc("zkBTC/v2/EpochAnchor", asset_id ‖ E ‖ prev_root ‖ reg_root_E)`
+
+(`E` is `u64` big-endian; `asset_id` is the 32-byte field of `IssuanceTerms_v3`). This **MUST** appear on-chain as a dedicated epoch-anchor transaction's first `OP_RETURN` output (`0x6a` `0x20` ‖ `epoch_anchor_id`). Remaining outputs pay the epoch's unslashed-bond return connectors as the compiler template requires. Alternative commitment inside a `MoveToBacked` graph-anchor leaf is permitted only if that leaf commits the same 32-byte `epoch_anchor_id`.
+
+**Unique successor (MUST — R-09 item 1).** The unique successor of the current lineage head is the **first** valid `epoch_anchor_id` for this `asset_id` and next `E` that confirms on the chain used for the LCP, ordered by `(block height, transaction index, output index)` ascending. A later same-`E` anchor is a **sibling** and is **invalid**. In gatekeeper mode the gatekeeper's R-04 view **MUST** apply this first-valid rule on its canonical chain. In no-gatekeeper mode the LCP proves the same first-valid property on the proven header chain (PoW-depth only — canonicity remains the Attack-A residual / `D_mint`). Mechanizing first-valid in the converted graph is a **G3 acceptance criterion**.
+
+**Registration-output (bond) semantic pin.** The bond UTXO is a P2TR with the vault NUMS internal key of §3.1.1 (no key-path). Its script tree **MUST** contain exactly: (i) a **slash** path spendable only along the epoch's BitVM2 proven-fraud / grief-default graph (bond forfeited; sequencing-connector burn of §4.1 role-note (c); `slash_bounty` paid from this output — §4.1.4); (ii) a **return** path to the registrant's identity-keyed output. The return path **MUST NOT** be spendable until **every** backing-only vault of epoch E has **no remaining reimbursement claim path** (all capacity reimbursed, slashed, or otherwise terminally resolved). A per-claim CSV window is **not** that condition. A reimbursement claim **MUST** prove this operator's bond output is still unspent; after return, further claims of that identity in E are not bounty-backed and **MUST** fail. Exact compiler script bytes for (i) and (ii) remain item-7 launch-pinned. Amount **MUST** be ≥ `B_E`. No `pk_{E,i}` without a live bond output.
 
 #### 4.1.3 Holder → operator onboarding (normative procedure — §4.6A(3))
 
@@ -1281,6 +1288,7 @@ Restatement of §4.0 as a checklist (two remaining gates — both **MUST** clear
 2. **Setup artifact.** Record the SRS / toxic-waste status of that artifact. Under the specified Groth16 path the MPC ceremony of A(2) **MUST** have completed with independent contributors; a transparent alternative **MUST** be demonstrated before dropping A(2).
 3. **Redeem-side payout-canonicity.** The disprove path **MUST** compare **cumulative work** (most-work chain), not mere depth, so a deep private-fork "payout" loses to an honest challenger's heavier canonical chain (§4.3.2 clause 8 / §5 residual 11 / §11 item 14). Clementine watchtowers posting a header-chain proof **with total work** are the behavioural reference; zkBTC **MUST** mechanize the same comparison in the converted graph. Until that demonstration, the bound stays **unmechanized**.
 4. **NEW-04 packing.** The sole-funder / single-party-authorised / claimant-commitment checks of §3.5.5 / §4.3.2 clause 12 **MUST** be packed into the converted public inputs without silently weakening them.
+5. **First-valid epoch successor.** The converted graph / LCP **MUST** enforce the first-valid `epoch_anchor_id` rule of §4.1.2.1 (unique R-09 lineage).
 
 Checking the G3 box without (1)–(4) is a security-relevant lie.
 
@@ -1672,7 +1680,7 @@ This subsection is informative — an idea for how deployments and future versio
 | 2026-08-20 | Grieving freezes **new vaults**, not already-presigned ancestor-epoch mints (align Honest cost with §4.1.1 item 8 and R-09 item 1). |
 | 2026-08-20 | Added §4.1.3 as the holder → operator onboarding write-up and named the Clementine self-funded-challenge anti-pattern under §4.6A(4). Does **not** clear G2 operational instantiation, G3 conversion, or the REQ-4.6A(4) live graph-emission path. |
 | 2026-08-20 | Living status, README, whitepaper, and §4.6B name only the remaining gates (G2, G3, §4.6A REQ-4). |
-| 2026-08-20 | Spec-side of G2 / REQ-4: canonical Policy-P and `reg_root_E` encoding (§4.1.2.1; 301-byte leaf including `pop_sig`), intended launch numbers for bond class (2 BTC), `B_E`, windows (`W_reg`/`W_round`/`W_setup`/`W_epoch`), holder→operator onboarding procedure (§4.1.3), and on-Bitcoin `slash_bounty` challenger funding (§4.1.4) with Clementine self-funded challenge named as the anti-pattern. Anti-domination is economic (`ceil(|S|/2) · B_E`), not an in-circuit unique-key ≥-half reject (that would ban `|S| = 2`); vacuous at `|S| = 1`. A(2) resolved for the specified Groth16 path (MPC ceremony required). G3 acceptance criteria listed. **G2 and G3 boxes stay unchecked** — encodings and numbers are not an operational market and not a conversion demonstration. Residuals in §11 items 5–10 and 14 stay residuals, not new launch gates. |
+| 2026-08-20 | Spec-side of G2 / REQ-4: canonical Policy-P and `reg_root_E` encoding (§4.1.2.1; 301-byte leaf including `pop_sig`; NEW-03 unpaired-hash promotion; `epoch_anchor_id` binds `asset_id`/`E`/`prev_root`/`reg_root_E` with first-valid successor; bond return only after epoch vaults have no remaining claim path; Corner-B `genesis_keys_root`; COutPoint `bond_txid` order), intended launch numbers for bond class (2 BTC), `B_E`, windows (`W_reg`/`W_round`/`W_setup`/`W_epoch`), holder→operator onboarding procedure (§4.1.3), and on-Bitcoin `slash_bounty` challenger funding (§4.1.4) with Clementine self-funded challenge named as the anti-pattern. Anti-domination is economic (`ceil(|S|/2) · B_E`), not an in-circuit unique-key ≥-half reject (that would ban `|S| = 2`); vacuous at `|S| = 1`. A(2) resolved for the specified Groth16 path (MPC ceremony required). G3 acceptance criteria listed. **G2 and G3 boxes stay unchecked** — encodings and numbers are not an operational market and not a conversion demonstration. Residuals in §11 items 5–10 and 14 stay residuals, not new launch gates. |
 
 ---
 
