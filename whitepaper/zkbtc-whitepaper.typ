@@ -118,12 +118,16 @@
   only on-chain footprint is a constant-size nullifier of 64 bytes that prevents
   double-spending without a global ledger of amounts. zkBTC is a one-to-one
   bitcoin-backed token on that protocol. Its reserve is held in vaults spendable
-  only along pre-signed BitVM2 fraud-proof paths, mintable under an optional
-  per-asset gatekeeper and redeemable by any holder as long as one of an open,
-  permissionless set of operators is live. Under the stated honesty and liveness
-  assumptions (one-of-N setup honesty, at least one honest live challenger
-  acting within each challenge window, and sound circuit and graph cryptography),
-  no operator can steal the reserve.
+  only along pre-signed BitVM2 fraud-proof paths. Anyone may join the operator
+  set; that set only grows; every new vault is signed by all current operators,
+  so a holder who registers before the first mint is the honest signer of every
+  vault and can also serve their own exit. A gatekeeper, when designated, may
+  screen new deposits and cannot freeze, seize, or block exit. Under the stated
+  honesty and liveness assumptions (one-of-N setup honesty, at least one honest
+  live challenger acting within each challenge window, and sound circuit and
+  graph cryptography), no operator can steal the reserve. zkBTC is effectively
+  trustless in that sense: you are an operator; you trust nobody else with your
+  bitcoin.
 ]
 
 #v(0.5em)
@@ -152,9 +156,11 @@ protocol whose reserve is secured by fraud proofs rather than custody. Honest
 majority hashpower orders the nullifiers. Operators cannot steal the reserve
 as long as one honest operator per backing group deletes its key at setup, at
 least one honest live challenger acts within each challenge window, and the
-circuit and BitVM2 graph cryptography are sound. Mint canonicity and
-operator-set diversity are separate residuals; a designated gatekeeper can
-check both.
+circuit and BitVM2 graph cryptography are sound. The holder who joins the
+cumulative operator set before the first mint _is_ that honest operator for
+every vault. Mint canonicity (a private-fork mint) is a separate residual; a
+designated gatekeeper can check it at mint time only. A gatekeeper is not
+what makes zkBTC trustless.
 
 // ============================================================================
 // 2. Transactions
@@ -665,26 +671,24 @@ and a one-shot mint key so each vault mints exactly once. Circulating supply is
 then a conditional upper bound against the public vault set on the
 canonical chain, not an unconditional invariant of the chain alone.
 
-The gatekeeper is optional and per-asset. Pure
-in-circuit proof-of-work depth cannot prove canonicity (a private fork can be
-deep) and cannot distinguish one party's many keys from many parties (a Sybil
-operator epoch). Two independent backing-drain attacks follow: private-fork mint
-settlement (Attack A), and a self-controlled operator epoch drained via ordinary
-redemption (Attack B). A designated gatekeeper can close both at mint time only.
-It co-signs a mint only after confirming, on its own canonical Bitcoin view, the
-backing transaction and the epoch's registration commitment (Attack A), and only
-if it vouches that the epoch's operator set contains at least one independent
-honest signer (Attack B). It has no key on the vault, no role in transfers or
-redemption, and cannot freeze, seize, or redirect. It can only refuse new mints.
-A negligent or compromised gatekeeper that skips these checks enables Attacks A
-and B.
+The operator set is open, permissionless, and growth-only. Anyone may join by
+posting a bond with proof of key possession. Nobody leaves. Every new vault is
+N-of-N over the current full set. A holder who registers before the first mint
+is the honest signer of every vault: a later Sybil club cannot omit them, and
+they will not co-sign a graph that pays a vault to a thief. That closes the
+self-controlled-operator drain (Attack B). Join before the first mint; coins
+minted earlier are an untrusted prefix because the token is fungible.
 
-Operators register openly. Anyone may register per deposit epoch by posting a
-bond with proof of key possession. Registrations commit into a policy root. A
-holder may register and serve their own exit. Epoch admission is two-level: a
-policy root pins the bond class and an anti-domination rule, and per-epoch
-registration commits the admitted set. An asset's terms therefore pin the
-registration policy, not a fixed operator list.
+The gatekeeper is optional and per-asset. Pure in-circuit proof-of-work depth
+cannot prove canonicity (a private fork can be deep). That is Attack A, a
+Bitcoin-class residual mitigated by deep finality on the order of 2016 blocks,
+closed cleanly only if a designated gatekeeper withholds its mint signature
+until it has confirmed, on its own canonical Bitcoin view, the backing
+transaction and the registration commitment. It has no key on the vault, no
+role in transfers or redemption, and cannot freeze, seize, or redirect. It can
+only refuse new mints. It is not the Attack-B close and not what makes zkBTC
+trustless. A negligent gatekeeper that skips the canonical check enables
+Attack A, not a Sybil drain of later vaults.
 
 Peg-out (redeem) is burn-first. The holder's redeem transition destroys the coin
 and publishes a redeem identifier (its transition nullifier) committing the
@@ -842,9 +846,9 @@ At deep finality catch-up against the honest chain is economically closed even
 for a 45\% attacker: $z = 2016$ yields probabilities on the order of
 $10^(-176)$ and smaller. That is not Attack A: a private fork can still be
 deep without catching the honest chain. The residual mint risk is therefore
-canonicity of the proven chain and the distinction between one party's keys
-and many parties, not raw proof-of-work catch-up. A designated gatekeeper can
-check both at mint time.
+canonicity of the proven chain, not raw proof-of-work catch-up. A designated
+gatekeeper can check canonicity at mint time. The Sybil-operator drain is
+closed by the growth-only operator set, not by the gatekeeper.
 
 // ============================================================================
 // 12. Conclusion
@@ -856,14 +860,16 @@ custodial trust. Coins are chains of proof-carrying state transitions. Bitcoin
 orders constant-size nullifiers so double-spends are publicly detectable without
 revealing amounts. Validity proofs replace global validation of a ledger of
 values; the on-chain footprint stays constant. The reserve is secured by
-pre-signed fraud-proof paths with an open operator set: under one-of-N setup
-honesty, at least one honest live challenger in each window, and sound
-cryptography, operators cannot steal. A gatekeeper, when designated, acts only
-at the mint boundary and cannot freeze transfers or redemption. Exit depends on
-liveness of some registered operator, never on permission. The guarantees are
-conditional on the enumerated assumptions. This paper is an informative
-introduction; the design is specified normatively in [8] and awaits
-implementation and external audit.
+pre-signed fraud-proof paths with an open, growth-only operator set: a holder
+who registers before the first mint is the honest signer of every vault and can
+serve their own exit. Under one-of-N setup honesty, at least one honest live
+challenger in each window, and sound cryptography, operators cannot steal. That
+is the sense in which zkBTC is effectively trustless. A gatekeeper, when
+designated, acts only at the mint boundary and cannot freeze transfers or
+redemption. Exit depends on liveness of some registered operator, never on
+permission. The guarantees are conditional on the enumerated assumptions. This
+paper is an informative introduction; the design is specified normatively in
+[8] and awaits implementation and external audit.
 
 // ============================================================================
 // References
