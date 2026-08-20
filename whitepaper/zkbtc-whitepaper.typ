@@ -705,8 +705,8 @@ the payout transaction is non-transferable by construction. Under the stated
 assumptions (one-of-N setup honesty, at least one honest live challenger acting
 within the window, and sound circuit and graph cryptography), the worst case is
 a freeze (redemption waits for a live operator), not theft. A critical circuit
-or graph soundness bug is the theft case, which is why an external audit gates
-mainnet.
+or graph soundness bug is the theft case. Sound circuit and graph
+cryptography is a standing assumption. There is no external-audit gate.
 
 Honest residuals remain even when theft is closed. The depositor's co-signature
 makes a vaulted contribution consented; a gatekeeper that withholds its mint
@@ -871,7 +871,7 @@ designated, acts only at the mint boundary and cannot freeze transfers or
 redemption. Exit depends on liveness of some registered operator, never on
 permission. The guarantees are conditional on the enumerated assumptions. This
 paper is an informative introduction; the design is specified normatively in
-[8] and awaits implementation and external audit.
+[8] and awaits implementation.
 
 // ============================================================================
 // References
