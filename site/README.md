@@ -13,13 +13,13 @@ entrance that carries the metadata and points to the paper.
 
 | File | Bytes | Role |
 | --- | ---: | --- |
-| `index.html` | 8,045 | The page. Self-contained: CSS inline, no images, no JavaScript, no external requests. |
+| `index.html` | 8,143 | The page. Self-contained: CSS inline, no images, no JavaScript, no external requests. |
 | `og.png` | 244,397 | Open Graph preview card, 1200×630. |
 | `fonts/*.woff2` | 67,824 | IBM Plex Sans 400 and IBM Plex Mono 400/600/700 — four files, three distinct weights. |
 | `fonts/LICENSE.txt` | 4,429 | SIL Open Font License 1.1, under which IBM Plex is distributed. |
 | `README.md` | this file | |
 
-Total: 327,584 bytes (320 KiB), of which the card is 75 %.
+Total: 329,131 bytes (321 KiB), of which the card is 74 %.
 
 ## Where the text comes from
 
@@ -34,7 +34,8 @@ where a quotation spans several.
 | `<title>`, `og:title` | line 6 | Yes — the paper's own title. |
 | First paragraph, the card, `og:description`, `og:image:alt` | lines 110–112 | Yes, including the conditional `would allow`. |
 | Second paragraph | lines 150–151 | Yes. |
-| Status line | lines 863–866 | Yes, and it starts one sentence earlier than the obvious cut, at *"The guarantees are conditional on the enumerated assumptions"* — that sentence carries the qualification and is not dropped. The citation marker `[8]` is kept and rendered as a link to the normative specification, so it resolves instead of dangling. |
+| Highlighted block | lines 861–863 | Yes — two sentences that stand consecutively in the paper's conclusion, quoted as one block. |
+| Footer maturity note | lines 865–866 | A verbatim fragment, `awaits implementation and external audit`, lifted out of the sentence *"the design is specified normatively in [8] and awaits implementation and external audit."* It is a fragment, not a sentence: the subject stays in the paper. The citation marker `[8]` is not carried over, since the sentence that held it is not on the page. |
 
 ### Strings that are **not** quotations
 
@@ -45,7 +46,7 @@ These are labels and navigation, and they are listed here so the claim above sta
 | Kicker: `zkBTC is a token standard on the zkCoins transfer system` | Adapted from line 648, which reads `zkBTC is token standard 3 on the zkCoins transfer system`. Two edits: the ordinal `3` is dropped, and the article `a` is inserted to keep the sentence grammatical. The ordinal identifies the standard inside the zkCoins protocol and means nothing to a first-time reader arriving at the domain. This is an adaptation, not a quotation. |
 | `zkBTC` (heading and card) | The product name. |
 | `Whitepaper (PDF)` | File-type label. |
-| `zkBTC Token Standard` | The reference title at lines 898–899 (`"zkBTC token standard"`), in title case. Also used as the `title` and `aria-label` of the `[8]` link. |
+| `zkBTC Token Standard` | The reference title at lines 898–899 (`"zkBTC token standard"`), in title case. |
 | `zkCoins protocol`, `Repository` | Footer link labels. |
 
 ## Verification
@@ -58,9 +59,8 @@ Measured with headless Chromium against this exact content:
   clear of every edge.
 - All four `@font-face` rules declare the weight their file actually contains.
 - The card image was decoded and compared against `og:image:alt`; they describe the same text.
-- The page contains five links to four distinct targets: `/white-paper/` (same origin), the
-  specification (twice — the action and the `[8]` marker), `zkcoins.com`, and the repository.
-  All four targets answer `200`.
+- The page contains four links: `/white-paper/` (same origin), the specification, `zkcoins.com`
+  and the repository. All four answer `200`.
 - `og.png` carries no text, EXIF or XMP chunks; no local paths appear in any file here.
 
 ## Deployment

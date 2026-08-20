@@ -159,12 +159,6 @@
     color: var(--ink);
     min-width: 0;
   }
-  .status a {
-    color: var(--accent);
-    text-decoration: none;
-  }
-  .status a:hover { text-decoration: underline; }
-
   .actions {
     display: flex;
     flex-wrap: wrap;
@@ -207,10 +201,17 @@
 
   footer {
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 28px 0 0;
+    min-width: 0;
+  }
+  .foot-links {
+    display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 0 10px;
-    margin: 28px 0 0;
     min-width: 0;
   }
   footer a {
@@ -228,6 +229,13 @@
     font-size: 15px;
     line-height: 1;
     pointer-events: none;
+  }
+  .maturity {
+    margin: 0;
+    font-family: var(--mono);
+    font-size: 15px;
+    line-height: 1.4;
+    color: #857f76;
   }
 
   @media (max-width: 419px) {
@@ -252,16 +260,19 @@
       <h1><span class="zk">zk</span>BTC</h1>
       <p class="lede">A purely peer-to-peer version of private electronic cash backed by bitcoin would allow payments to be sent without revealing amounts or the transaction graph and without a custodian.</p>
       <p class="lede lede-2">zkBTC is a bitcoin-backed token on that protocol whose reserve is secured by fraud proofs rather than custody.</p>
-      <p class="status">The guarantees are conditional on the enumerated assumptions. This paper is an informative introduction; the design is specified normatively in <a href="https://github.com/zk-coins/zkbtc/blob/main/spec/ZKBTC_TOKEN.md" title="zkBTC token standard" aria-label="zkBTC token standard">[8]</a> and awaits implementation and external audit.</p>
+      <p class="status">A gatekeeper, when designated, acts only at the mint boundary and cannot freeze transfers or redemption. Exit depends on liveness of some registered operator, never on permission.</p>
       <div class="actions">
         <a class="btn" href="/white-paper/">Whitepaper (PDF)</a>
         <a class="text-link" href="https://github.com/zk-coins/zkbtc/blob/main/spec/ZKBTC_TOKEN.md">zkBTC Token Standard</a>
       </div>
     </main>
     <footer>
-      <a href="https://zkcoins.com">zkCoins protocol</a>
-      <span class="sep" aria-hidden="true">·</span>
-      <a href="https://github.com/zk-coins/zkbtc">Repository</a>
+      <div class="foot-links">
+        <a href="https://zkcoins.com">zkCoins protocol</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="https://github.com/zk-coins/zkbtc">Repository</a>
+      </div>
+      <p class="maturity">awaits implementation and external audit</p>
     </footer>
   </div>
 </body>
