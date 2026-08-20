@@ -834,7 +834,7 @@ BitVM2-mainnet is **CLEARED** (proven). Remaining work is **two gates** on prove
 | # | Gate | Notes |
 |---|------|-------|
 | G1 | BitVM2 verifier mainnet-proven | **CLEARED** — Bitlayer 2025-07; Citrea Clementine live 2026-01 |
-| G2 | Reference open-registration operator market operational | GOAT/Fiamma ship open registration; our per-epoch registration market (§4.1.1 / §4.1.2) must be instantiated and calibrated |
+| G2 | Reference open-registration operator market operational | GOAT/Fiamma ship open registration; encodings, windows, bond class, onboarding, and bounty are specified (§4.1.2 / §4.1.2.1 / §4.1.3 / §4.1.4 / §4.4). Clearance is a **live** market under those rules, not further spec calibration |
 | G3 | **Plonky2 → BitVM2 (Groth16/SNARK) conversion of the zkCoins compliance predicate demonstrated** | Integration track (a) — blocking engineering gate |
 
 ### 4.1 Roles
