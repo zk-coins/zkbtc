@@ -13,13 +13,13 @@ entrance that carries the metadata and points to the paper.
 
 | File | Bytes | Role |
 | --- | ---: | --- |
-| `index.html` | 7,770 | The page. Self-contained: CSS inline, no images, no JavaScript, no external requests. |
+| `index.html` | 7,726 | The page. Self-contained: CSS inline, no images, no JavaScript, no external requests. |
 | `og.png` | 244,397 | Open Graph preview card, 1200×630. |
 | `fonts/*.woff2` | 67,824 | IBM Plex Sans 400 and IBM Plex Mono 400/600/700 — four files, three distinct weights. |
 | `fonts/LICENSE.txt` | 4,429 | SIL Open Font License 1.1, under which IBM Plex is distributed. |
-| `README.md` | this file | |
+| `README.md` | — | This file. Repository documentation; **not** part of what gets served. |
 
-Total: 329,227 bytes (322 KiB), of which the card is 74 %.
+Served to the web root: 324,376 bytes (317 KiB) — the four rows above, of which the card is 75 %. This file is not served.
 
 ## Where the text comes from
 
