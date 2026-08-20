@@ -154,7 +154,7 @@ client-side-validated transfer protocol whose only on-chain footprint is a
 constant 64 bytes per transaction. zkBTC is a bitcoin-backed token on that
 protocol whose reserve is secured by fraud proofs rather than custody. Honest
 majority hashpower orders the nullifiers. Operators cannot steal the reserve
-as long as one honest operator per backing group deletes its key at setup, at
+as long as one honest operator per backing group deletes its epoch signing key at setup, at
 least one honest live challenger acts within each challenge window, and the
 circuit and BitVM2 graph cryptography are sound. The holder who joins the
 cumulative operator set before the first mint _is_ that honest operator for
@@ -658,8 +658,9 @@ custody.
 The vault is a taproot output with a NUMS internal key, so there is no key-path
 spend. Its only spend paths are an ordered, N-of-N pre-signed BitVM2 transaction
 graph (assert, challenge, disprove, payout) fixed at deposit setup. After setup
-the signing keys are deleted. The vault then has no live signer at all. Under
-one-of-N honest deletion, no coalition can sign anything outside the graph.
+the epoch signing keys are deleted; identity keys are not. The vault then has
+no live signer for that epoch's graph. Under one-of-N honest epoch-key deletion,
+no coalition can sign anything outside the graph.
 
 Peg-in (mint) proceeds as follows. The depositor and the operators co-sign a
 MoveToBacked transaction that places the deposit under the vault. The mint

@@ -146,7 +146,7 @@ ist. zkBTC ist ein durch Bitcoin gedecktes Token darauf, dessen Reserve
 durch Betrugsnachweise gesichert ist, nicht durch Verwahrung. Ehrliche
 Mehrheit der Hashrate ordnet die Nullifier. Operatoren können die Reserve
 nicht stehlen, solange ein ehrlicher Operator je Deckungsgruppe seinen
-Schlüssel beim Einrichten löscht, mindestens ein ehrlicher lebender
+Epoch-Signaturschlüssel beim Einrichten löscht, mindestens ein ehrlicher lebender
 Challenger in jedem Fenster handelt und Circuit sowie BitVM2-Graph
 einwandfrei sind. Der Inhaber, der vor dem ersten Mint in die kumulative
 Operator-Menge eintritt, _ist_ dieser ehrliche Operator für jeden Tresor.
@@ -635,9 +635,10 @@ Der Tresor ist eine Taproot-Ausgabe mit NUMS-Internschlüssel, es gibt also
 keinen Key-Path-Spend. Seine einzigen Ausgabepfade sind ein geordneter,
 N-aus-N vorsignierter BitVM2-Transaktionsgraph (Assert, Challenge, Disprove,
 Payout), fest beim Einrichten der Einlage. Nach dem Einrichten werden die
-Signaturschlüssel gelöscht. Der Tresor hat dann überhaupt keinen lebenden
-Unterzeichner. Unter ehrlichem 1-aus-N-Löschen kann keine Koalition etwas
-ausserhalb des Graphen unterschreiben.
+Epoch-Signaturschlüssel gelöscht; Identitätsschlüssel bleiben. Der Tresor hat
+dann für diesen Epoch-Graphen keinen lebenden Unterzeichner. Unter ehrlichem
+1-aus-N-Löschen des Epoch-Schlüssels kann keine Koalition etwas ausserhalb
+des Graphen unterschreiben.
 
 Peg-in (Mint) läuft so. Einleger und Operatoren unterschreiben gemeinsam
 eine MoveToBacked-Transaktion, die die Einlage unter den Tresor legt. Der
