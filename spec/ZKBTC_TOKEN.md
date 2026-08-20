@@ -913,6 +913,23 @@ This section specifies the open-registration mechanism that makes the two-level 
 
 7. **Honest launch-pin.** The concrete registration-output script bytes and `reg_root_E` commitment encoding are **launch parameters** (frozen with the v2 circuit digests, NEW-03 style). The **semantic** requirements (items 1–6) are normative now. Implementations **MUST NOT** claim present-day absolute byte-determinism for the registration-output / `reg_root_E` encoding beyond the semantic pins above (same honesty as §3.1.1 point 4 / §4.2.1 connector-byte launch-pinning).
 
+### 4.1.3 Holder → operator onboarding (normative)
+
+This section is the documented holder → operator onboarding procedure required by §4.6A item 3. It restates existing rules; it does **not** add a new attack close and it does **not** freeze launch-pin bytes.
+
+A holder who wants the effectively-trustless path of §1.1.1 **MUST** join S **before** this asset's first mint. The procedure is:
+
+1. The wallet **MUST NOT** construct a deposit unless the user's operator identity key is already in current S (§1.1.1 item 2).
+2. Join is permissionless. The holder posts a policy-P bond to a slashable registration output and adds the identity pubkey per §4.1.2 items 1–2 (identity-bound PoP; duplicate `identity_pubkey` and duplicate `pk_{E,i}` **MUST** be rejected).
+3. The holder contributes a **fresh** epoch signing pubkey `pk_{E,i}` bound by that identity PoP. The identity key is **not** the KeyAgg key (NEW-01).
+4. The holder completes Level-1 N-of-N presign inside the setup window (§4.1.2 items 5–6). Already-admitted operators **MUST NOT** be dropped. A *joiner* that misses a per-round deadline **MAY** be excluded and slashed; that joiner was never in S.
+5. After the epoch's presign completes, the holder **MUST** delete the **epoch** signing secret and **MUST** keep the identity key.
+6. Bonded-onboarding cost is real (§4.1 role-note (b)). Open registration is not a free click: the BitVM2 presign graph has cost. Implementations **MUST NOT** assume every retail holder self-registers.
+7. **First-mint rule.** Join **before** this asset's first mint, meaning **before that vault's epoch presign** (§1.1.1). Prefix coins minted earlier are untrusted unless an honest operator was already in S_E at those mints.
+8. After joining, the holder **MAY** self-front exits from vaults whose S_E includes them (§4.1.1 items 3–4). A late joiner **MUST NOT** be told they can reclaim older vaults they were never in.
+
+Concrete registration-output script bytes and `reg_root_E` commitment encoding remain launch pins (§4.1.2 item 7). This section does not freeze them.
+
 ### 4.2 Peg-in (permissionless mint; optional gatekeeper)
 
 Numbered happy path (**deposit taproot** → co-signed **`MoveToBacked`** → **backing-only vault output** → deep mint). These are two distinct UTXOs with cleanly separated rights (R-01 inverted binding; analogous to Clementine's MoveToVault-before-refund, but named `MoveToBacked` here because the output is permanently backing-only):
@@ -1175,8 +1192,16 @@ Without these, the REQ-4 claim is **false** (a mint-time party re-enters on the 
 1. **Policy-P anti-domination and R-09 (open registration market).** Policy P's admissibility predicate **MUST** ensure that no single party controls ≥ half of S, **and MUST** encode R-09 (growth-only, no kick after admission, every new vault N-of-N over current S). Enforced economically by bond cost + honest-registration assumption; **Attack B is closed by R-09**, not by a gatekeeper vouch. (R-04 remains the private-fork / Attack A backstop when a gatekeeper is designated and is independent of this domination gate.) Bootstrap capture of **genesis** S (one organisation == entire S at first mint) reintroduces the prefix residual of R-09 item 6 — hence the first-mint rule.
 2. **Setup integrity (BitVM2 form).** For every dispute path, N-of-N presign ceremony integrity **MUST** hold, with the independent-watchtower/challenger floor met and the anti-grief ceremony rule of §4.1.2 item 5. Toxic-waste concern re-based to BitVM2: connector/presign correctness; one honest signer deletes its **epoch signing secret** (NEW-01; identity keys remain). The ceremony **MUST** ensure that no single mint-time party monopolises setup artefacts that would allow forging or voiding fraud proofs.  
    **Open point:** IF a global circuit-specific setup artifact also exists in the BitVM2 conversion path (to be verified as part of the Plonky2→BitVM2 work), the classic "MPC ceremony with independent contributors" gate **MUST** apply there too. Do not abstract this uncertainty away.
-3. **Documented holder → operator onboarding** (self-fronting) via **open permissionless registration** (§4.1.1 / §4.1.2), acknowledging the bonded-onboarding cost of §4.1 role-note (b).
-4. **Challenger economics documented.** Name deployed Clementine's self-funded-challenge gap (challengers must self-fund; cross-chain reimbursement not deployed) as the **anti-pattern** to solve. BitVM2 permissionless challenge still needs challenger incentive/funding — an honest open item (not an availability gap).
+3. **Documented holder → operator onboarding** (self-fronting). The procedure in **§4.1.3** is the documentation that discharges this gate as *documentation*: open permissionless registration (§4.1.1 / §4.1.2), first-mint rule, and the bonded-onboarding cost of §4.1 role-note (b). It does **not** instantiate the reference operator market (G2 remains operational/calibration).
+4. **Challenger economics documented.** See **Challenger economics** below. Magnitude stays `PROVISIONAL` / §11 item 4.
+
+#### Challenger economics (normative documentation)
+
+BitVM2 **delivers** permissionless challenge *availability*: any full-node observer **MAY** disprove a fraudulent assert (§4.1 role-note (a)). Availability is not action. Safety still requires that at least one honest challenger actually acts in-window (§5 residual 3).
+
+Deployed Clementine's **self-funded-challenge gap** is the **anti-pattern** this gate names: challengers must self-fund; cross-chain reimbursement of challenger costs is not deployed. A zkBTC funding path **MUST** make in-window challenge *rational* for at least one honest party. Until that path exists, REQ-4 safety rests only on residual 3 (someone acts anyway). This documentation does **not** pin a bond or reward amount. Exact economics remain launch-pin / §11 item 4.
+
+This gate **MUST NOT** introduce an external-audit step. It **MUST NOT** make the gatekeeper a challenger-funder. The gatekeeper has no peg-out role (REQ-4).
 
 #### (B) Maturity / integration gates
 
@@ -1573,6 +1598,7 @@ This subsection is informative — an idea for how deployments and future versio
 | 2026-08-20 | Gatekeeper summaries (§2.1, §4.1, §6.1, D8) list the epoch-relative R-09 withhold as a **third** designated duty: additional, not the Attack-B close. Trust-matrix entry quality no longer attributes vault legitimacy to a gatekeeper vouch. |
 | 2026-08-20 | Grieving freezes **new vaults**, not already-presigned ancestor-epoch mints (align Honest cost with §4.1.1 item 8 and R-09 item 1). |
 | 2026-08-20 | **No external-audit gate.** Dropped G4. Remaining maturity gates are G2 (open-registration market) and G3 (Plonky2→BitVM2 conversion), plus §4.6A REQ-4. Sound circuit/graph crypto remains a standing assumption, not something an audit is specified to close. |
+| 2026-08-20 | Documented holder → operator onboarding as §4.1.3 and documented challenger-economics anti-pattern / funding residual under §4.6A(4). Discharges those two REQ-4 gates as *documentation* only. Does **not** clear G2 operational instantiation or G3 conversion. |
 
 ---
 

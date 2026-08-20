@@ -84,7 +84,7 @@ This repository currently contains a design specification only. No implementatio
 
 Both remaining gates must clear before this is a build order. There is **no** external-audit gate. BitVM2 itself is mainnet-proven, and the remaining work — predicate conversion and open-registration hardening — is well-scoped engineering on proven components, not speculative research. That does not make this a build order yet: no code exists here, and it is not production-ready until the gates above clear.
 
-Details are in the specification’s **Construction decision and maturity gate** section.
+Details are in the specification’s **Construction decision and maturity gate** section. Holder self-registration before the first mint is the numbered procedure in specification **§4.1.3**; that section documents onboarding and does not claim the open-registration market is operational.
 
 ## Repository layout
 
