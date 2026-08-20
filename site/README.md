@@ -13,13 +13,13 @@ entrance that carries the metadata and points to the paper.
 
 | File | Bytes | Role |
 | --- | ---: | --- |
-| `index.html` | 7,726 | The page. Self-contained: CSS inline, no images, no JavaScript, no external requests. |
+| `index.html` | 7,788 | The page. Self-contained: CSS inline, no images, no JavaScript, no external requests. |
 | `og.png` | 244,397 | Open Graph preview card, 1200×630. |
 | `fonts/*.woff2` | 67,824 | IBM Plex Sans 400 and IBM Plex Mono 400/600/700 — four files, three distinct weights. |
 | `fonts/LICENSE.txt` | 4,429 | SIL Open Font License 1.1, under which IBM Plex is distributed. |
 | `README.md` | — | This file. Repository documentation; **not** part of what gets served. |
 
-Served to the web root: 324,376 bytes (317 KiB) — the four rows above, of which the card is 75 %. This file is not served.
+Served to the web root: 324,438 bytes (317 KiB) — the four rows above, of which the card is 75 %. This file is not served.
 
 ## Where the text comes from
 
@@ -34,7 +34,7 @@ where a quotation spans several.
 | `<title>`, `og:title` | line 6 | Yes — the paper's own title. |
 | First paragraph, the card, `og:description`, `og:image:alt` | lines 110–112 | Yes, including the conditional `would allow`. |
 | Second paragraph | lines 150–151 | Yes. |
-| Highlighted block | lines 861–863 | Yes — two sentences that stand consecutively in the paper's conclusion, quoted as one block. |
+| Highlighted block | lines 861–864 | Yes — three sentences that stand consecutively in the paper's conclusion, quoted as one block, including the qualifier that closes them. |
 
 ### What the page does not say
 
