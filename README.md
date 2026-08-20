@@ -53,7 +53,7 @@ For the full argument, see specification §1.1.1, the **Trust matrix**, and **R-
 
 ## Costs, limitations, and residual risks
 
-**When is zkBTC safe, in one sentence?** You joined the cumulative operator set before the first mint and refuse malicious graphs; at least one watchful party reports fraud in time; you (or some registered operator) can process redemptions; the cryptography and Bitcoin transaction graph are sound; and no attacker controls more than roughly half of Bitcoin's hash power (Bitcoin's own "51%" assumption) — if any one of these fails, backing can, in the worst case, be lost. A gatekeeper is not in that sentence.
+**When is zkBTC safe, in one sentence?** You joined the cumulative operator set before the first mint and refuse malicious graphs; at least one watchful party reports fraud in time; you (or some registered operator) can process redemptions; the cryptography and Bitcoin transaction graph are sound; and no attacker controls more than roughly half of Bitcoin's hash power (Bitcoin's own "51%" assumption) — if any one of these fails, backing can, in the worst case, be lost. A gatekeeper is not in that **product** sentence (Corner D). When a gatekeeper is designated (Corner A), honest R-04 is an extra Attack-A condition.
 
 zkBTC is a design that states its residuals plainly rather than masking them. A fair reader should weigh all of the following before treating it as "just Bitcoin":
 

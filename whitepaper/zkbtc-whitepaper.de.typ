@@ -667,9 +667,9 @@ ist Angriff A, ein Residuum der Bitcoin-Klasse, gemildert durch tiefe
 Finalität in der Grössenordnung 2016 Blöcke, sauber geschlossen nur wenn
 ein bestimmter Gatekeeper seine Mint-Signatur zurückhält, bis er auf seiner
 eigenen kanonischen Bitcoin-Sicht die Deckungs-Transaktion und die
-Anmeldeverpflichtung bestätigt hat. Es hat keinen Schlüssel auf dem Tresor,
+Anmeldeverpflichtung bestätigt hat. Er hat keinen Schlüssel auf dem Tresor,
 keine Rolle bei Transfers oder Einlösen und kann nicht einfrieren,
-beschlagnahmen oder umleiten. Es kann nur neue Mints ablehnen. Es ist nicht
+beschlagnahmen oder umleiten. Er kann nur neue Mints ablehnen. Er ist nicht
 der Schluss von Angriff B und nicht das, was zkBTC vertrauensfrei macht.
 Ein nachlässiger Gatekeeper, der die Kanonizitätsprüfung überspringt,
 ermöglicht Angriff A, nicht das Ablassen späterer Tresore.
