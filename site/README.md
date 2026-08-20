@@ -13,13 +13,13 @@ entrance that carries the metadata and points to the paper.
 
 | File | Bytes | Role |
 | --- | ---: | --- |
-| `index.html` | 8,143 | The page. Self-contained: CSS inline, no images, no JavaScript, no external requests. |
+| `index.html` | 8,145 | The page. Self-contained: CSS inline, no images, no JavaScript, no external requests. |
 | `og.png` | 244,397 | Open Graph preview card, 1200×630. |
 | `fonts/*.woff2` | 67,824 | IBM Plex Sans 400 and IBM Plex Mono 400/600/700 — four files, three distinct weights. |
 | `fonts/LICENSE.txt` | 4,429 | SIL Open Font License 1.1, under which IBM Plex is distributed. |
 | `README.md` | this file | |
 
-Total: 329,131 bytes (321 KiB), of which the card is 74 %.
+Total: 329,297 bytes (322 KiB), of which the card is 74 %.
 
 ## Where the text comes from
 
@@ -46,7 +46,7 @@ These are labels and navigation, and they are listed here so the claim above sta
 | Kicker: `zkBTC is a token standard on the zkCoins transfer system` | Adapted from line 648, which reads `zkBTC is token standard 3 on the zkCoins transfer system`. Two edits: the ordinal `3` is dropped, and the article `a` is inserted to keep the sentence grammatical. The ordinal identifies the standard inside the zkCoins protocol and means nothing to a first-time reader arriving at the domain. This is an adaptation, not a quotation. |
 | `zkBTC` (heading and card) | The product name. |
 | `Whitepaper (PDF)` | File-type label. |
-| `zkBTC Token Standard` | The reference title at lines 898–899 (`"zkBTC token standard"`), in title case. |
+| `Read the specification` | Action label. It deliberately does **not** reuse the reference title `zkBTC token standard` from lines 898–899: that phrase reads like a ratified norm, while the document behind the link states `Design specification. No code.` in its own first line. The label describes the action, and the document states its own status. |
 | `zkCoins protocol`, `Repository` | Footer link labels. |
 
 ## Verification
