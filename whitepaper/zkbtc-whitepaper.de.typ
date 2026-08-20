@@ -691,8 +691,9 @@ Partei autorisiert: die Auszahltransaktion ist konstruktionsgemäss nicht
 mindestens ein ehrlicher lebender Challenger im Fenster, einwandfreie
 Circuit- und Graph-Kryptographie) ist der schlimmste Fall ein Einfrieren
 (das Einlösen wartet auf einen lebenden Operator), nicht Diebstahl. Ein
-kritischer Circuit- oder Graph-Soundness-Fehler ist der Diebstahlfall,
-deshalb sperrt ein externes Audit das Mainnet.
+kritischer Circuit- oder Graph-Soundness-Fehler ist der Diebstahlfall.
+Einwandfreie Circuit- und Graph-Kryptographie bleibt eine stehende
+Annahme. Es gibt kein externes-Audit-Gate.
 
 Ehrliche Residuen bleiben, auch wenn Diebstahl geschlossen ist. Die
 Mitunterschrift des Einlegers macht einen getresorten Beitrag zugestimmt;
@@ -865,7 +866,7 @@ kann Transfers oder Einlösen nicht einfrieren. Der Ausgang hängt an der
 Lebendigkeit eines angemeldeten Operators, nie an einer Erlaubnis. Die
 Garantien sind an die aufgezählten Annahmen gebunden. Dieses Paper ist eine
 informative Einführung; der Entwurf ist normativ in [8] festgelegt und
-wartet auf Umsetzung und externes Audit.
+wartet auf Umsetzung.
 
 #heading(numbering: none)[Literatur]
 
@@ -895,4 +896,4 @@ ePrint Archive 2025/776, 2025.
 BIP-340, 2020.
 
 [8]#h(0.6em)"zkCoins-Protokollspezifikation," https://github.com/zk-coins/docs, und "zkBTC-Tokenstandard,"
-https://github.com/zk-coins/zkbtc, 2026.
+https://github.com/zk-BTC/zkbtc, 2026.
