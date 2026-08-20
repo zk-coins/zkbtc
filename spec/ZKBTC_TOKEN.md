@@ -214,8 +214,9 @@ IssuanceTerms_v3 = {
                                  //   P. **Default and product** is the **open, growth-only** policy of
                                  //   §4.1.1 / R-09: the permissionless join RULE (anyone may join by
                                  //   bond + PoP), **no leave / no kick after admission**, the bond
-                                 //   **class/tier** (not the exact sat amount), the **anti-domination /
-                                 //   admissibility predicate**, the **KeyAgg + PoP** rule (§4.1.2),
+                                 //   **class/tier** (not the exact sat amount), the **economic
+                                 //   anti-domination target** (not an in-circuit unique-key ≥-half
+                                 //   reject — §4.1.2.1), the **KeyAgg + PoP** rule (§4.1.2),
                                  //   and the **superset `reg_root_E`** rule (every new vault N-of-N
                                  //   over current S). Under that default it is a **policy** root, NOT a
                                  //   frozen list of keys — S grows, it does not restart. **Alternative
@@ -363,7 +364,7 @@ Changing policy P produces a different `operator_set_root` and therefore a **dif
 - `decimals` **MUST** equal `8` for the zkBTC asset (satoshi base units).
 - `vault_template` is bound into `asset_id` via `H(vault_template)`. Changing the template produces a **different** `asset_id` (new asset).
 - `gatekeeper` is bound into `asset_id` and `terms_hash`. Presence and identity are fixed and holder-visible. A gatekeeper **cannot** be added, removed, or rotated without producing a different asset (**rotation = new asset** — stated honestly).
-- `operator_set_root` is bound into `asset_id` and `terms_hash` (same freeze discipline — changing the *policy* = new asset). Policy identity (join rule, **R-09 growth-only / no-leave**, bond class/tier, anti-domination predicate, KeyAgg+PoP rule, optional R-08 duty for gated deployments) is identity-bound; concrete registration-window length, epoch cadence, exact bond amount within class, and setup-window deadline are **not** identity-bound (§4.4).
+- `operator_set_root` is bound into `asset_id` and `terms_hash` (same freeze discipline — changing the *policy* = new asset). Policy identity (join rule, **R-09 growth-only / no-leave**, bond class/tier, economic anti-domination **target** — not an in-circuit unique-key ≥-half reject — §4.1.2.1, KeyAgg+PoP rule, optional R-08 duty for gated deployments) is identity-bound; concrete registration-window length, epoch cadence, exact bond amount within class, and setup-window deadline are **not** identity-bound (§4.4).
 - `refund_timelock` is a **per-deposit-epoch bridge parameter** only (§4.4). It governs the deposit-taproot refund leaf, not token identity, and is **not** in `IssuanceTerms_v3`, `AssetIdV3`, or `terms_hash`.
 - Allowed deposit/payout denominations are **per-deposit-epoch bridge parameters** (§4.4). The circuit enforces only `amount == vault-output amount`, not membership of a frozen denomination set.
 
@@ -927,7 +928,7 @@ operator_set_root := Hc("zkBTC/v2/PolicyP",
     r09_flags          ||  // u8: bit0 growth-only, bit1 no-leave, bit2 no-kick-after-admission; product default = 0x07
     bond_class_sats    ||  // u64 big-endian; identity-bound class, not the per-epoch amount
     anti_dom_numer     ||  // u8
-    anti_dom_denom     ||  // u8; no single identity-party may control ≥ numer/denom of |S| when |S| ≥ 2
+    anti_dom_denom     ||  // u8; economic target only — MUST NOT be an in-circuit unique-key ≥-half reject (§4.1.2.1)
     keyagg_rule        ||  // u8: 0x01 = BIP-327 MuSig2 KeyAgg, keys lexicographically sorted
     pop_rule           ||  // u8: 0x01 = identity-bound PoP, domain tag "zkBTC/v2/PoP"
     r08_duty               // u8: 0x00 = none (product default); 0x01 = gated optional R-08 duty
