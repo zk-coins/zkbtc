@@ -120,7 +120,8 @@
   bitcoin-backed token on that protocol. Its reserve is held in vaults spendable
   only along pre-signed BitVM2 fraud-proof paths. Anyone may join the operator
   set; that set only grows; every new vault is signed by all current operators,
-  so a holder who registers before the first mint is the honest signer of every
+  so a holder who registers before the first mint (before that vault's setup)
+  is the honest signer of every
   vault and can also serve their own exit. A gatekeeper, when designated, may
   screen new deposits and cannot freeze, seize, or block exit. Under the stated
   honesty and liveness assumptions (one-of-N setup honesty, at least one honest

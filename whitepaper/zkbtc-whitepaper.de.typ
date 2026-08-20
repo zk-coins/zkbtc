@@ -112,7 +112,8 @@
   nur entlang vorsignierter BitVM2-Betrugsnachweis-Pfade ausgebbar sind.
   Jeder darf in die Operator-Menge; diese Menge wächst nur; jeder neue Tresor
   wird von allen aktuellen Operatoren unterschrieben, sodass ein Inhaber, der
-  sich vor dem ersten Mint anmeldet, der ehrliche Unterzeichner jedes Tresors
+  sich vor dem ersten Mint (vor dem Einrichten dieses Tresors) anmeldet, der
+  ehrliche Unterzeichner jedes Tresors
   ist und den eigenen Ausgang bedienen kann. Ein Gatekeeper, wenn bestimmt,
   darf neue Einlagen prüfen und kann nicht einfrieren, beschlagnahmen oder
   den Ausgang blockieren. Unter den genannten Ehrlichkeits- und
