@@ -28,10 +28,7 @@ zkBTC is token standard 3 (`issuance_version == 3`) on the zkCoins protocol: an 
 
 ## How zkBTC is deployed
 
-zkBTC runs as a **single self-contained software package** (one Docker module) that an operator runs alongside the zkCoins software. It bundles the two jobs that keeping a token backed one-for-one by Bitcoin needs — the jobs that happen outside the private zkCoins ledger:
-
-- **The bridge** holds the Bitcoin reserve and handles the way in (locking BTC to mint zkBTC) and the way out (redeeming zkBTC back into on-chain BTC).
-- **The gatekeeper** is the optional entry control. It checks the source of each *new* deposit and admits only deposits that meet the asset's entry criteria. It has no say over coins that already exist: it cannot freeze, seize, block a transfer, or block a redemption. Its role is at the entrance, never over anyone's balance.
+zkBTC runs as a **single self-contained software package** (one Docker module) that an operator runs alongside the zkCoins software. One-for-one backing is the **bridge** plus the **growth-only operator set (R-09)** — those jobs happen outside the private zkCoins ledger. A **gatekeeper**, if the asset designates one, is optional entry control only: it checks the source of *new* deposits. It is not one of the jobs that 1:1 backing needs, it has no say over coins that already exist, and it cannot freeze, seize, block a transfer, or block a redemption.
 
 On the zkCoins side the package behaves like an ordinary wallet, talking to the same public interface every wallet uses. On the Bitcoin side it behaves like an ordinary Bitcoin service. It never reaches into the trustless zkCoins core: the part of the system that actually holds the balances stays behind that public interface, out of the package's reach, exactly as it does for every other participant.
 
@@ -83,7 +80,7 @@ This repository currently contains a design specification only. No implementatio
 | --- | --- |
 | BitVM2 as the reserve construction | **Cleared.** BitVM2 is mainnet-proven (Bitlayer since 2025-07; Citrea Clementine since 2026-01). |
 | (a) Compliance-predicate conversion | **Open.** Convert the zkCoins compliance predicate from its current proving system to a form BitVM2 can verify (a Groth16/SNARK conversion) — an integration engineering gate. |
-| (b) Open operator-registration market | **Open.** Instantiate and harden open operator registration (bonding, anti-domination policy, registration ceremony) — a calibration/engineering gate. |
+| (b) Open operator-registration market | **Open.** Instantiate and harden open, **growth-only** operator registration (R-09: identity set, no leave, identity-bound epoch signing keys, bonding, anti-domination, ceremony) — a calibration/engineering gate. |
 | (c) External audit | **Open.** External audit of the v2 circuit, BitVM2 graph, and pre-signed graphs, published before mainnet — addresses the circuit/graph-soundness class that could otherwise enable theft (sound circuit/graph crypto remains a standing trust assumption even after audit — see specification §4.5 / §5 / §4.6B). |
 
 All three gates must clear before this is a build order. BitVM2 itself is mainnet-proven, and the remaining work — predicate conversion, open-registration hardening, and the external audit — is well-scoped engineering on proven components, not speculative research. That does not make this a build order yet: no code exists here, the design is unaudited, and it is not production-ready until the gates above clear.
