@@ -904,4 +904,4 @@ ePrint Archive 2025/776, 2025.
 BIP-340, 2020.
 
 [8]#h(0.6em)"zkCoins protocol specification," https://github.com/zk-coins/docs, and "zkBTC token
-standard," https://github.com/zk-coins/zkbtc, 2026.
+standard," https://github.com/zk-BTC/zkbtc, 2026.
