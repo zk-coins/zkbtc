@@ -1,0 +1,1489 @@
+{
+  "brand": "zkBTC",
+  "files": [
+    {
+      "bytes": 5049,
+      "kind": "support",
+      "path": "branding/BRANDBOOK.md",
+      "sha256": "baacc9da50e95449cdff787e2c602768b3195a6ec79623a1e5f30b9a787fbac0"
+    },
+    {
+      "bytes": 2172,
+      "kind": "support",
+      "path": "branding/README.md",
+      "sha256": "9993786904f108ab177159af14dd07887d192de361897067a0fefe9a2fb49a17"
+    },
+    {
+      "bytes": 11650,
+      "kind": "raster-derived",
+      "path": "branding/favicon/android-chrome-192.png",
+      "sha256": "5083a4b941b2ff05552a7f52b449e9b2c077174ff03ea10f16ea1c66930ab9d1"
+    },
+    {
+      "bytes": 60820,
+      "kind": "raster-derived",
+      "path": "branding/favicon/android-chrome-512.png",
+      "sha256": "61c62467e22d985268782191bc575ca6826679685782682d76032043af6f1dfa"
+    },
+    {
+      "bytes": 10379,
+      "kind": "raster-derived",
+      "path": "branding/favicon/apple-touch-icon-180.png",
+      "sha256": "3d5f2f8518b39c0edcac7adfae6d97f8c83144a304628fc0c61bec7150247b12"
+    },
+    {
+      "bytes": 379,
+      "kind": "raster-derived",
+      "path": "branding/favicon/favicon-16.png",
+      "sha256": "f0943129e55a4ef16e3f73480a93d2659c4cd703b41256e70e50183411a8f0e2"
+    },
+    {
+      "bytes": 905,
+      "kind": "raster-derived",
+      "path": "branding/favicon/favicon-32.png",
+      "sha256": "193a49cf272f228de9fdc1e7aecce54efa726db9be4acf86b4529a73c57d394e"
+    },
+    {
+      "bytes": 1465,
+      "kind": "raster-derived",
+      "path": "branding/favicon/favicon.ico",
+      "sha256": "9e3317d5d45c280281899f6b58a101749d8f19c3e9d3c676fd480b999632990d"
+    },
+    {
+      "bytes": 5907,
+      "kind": "raster-derived",
+      "path": "branding/favicon/zkbtc-icon-128.png",
+      "sha256": "71b24e3626b54df0bbba31c535ed86250d663988a0517a892a03e5a6a64890ba"
+    },
+    {
+      "bytes": 379,
+      "kind": "raster-derived",
+      "path": "branding/favicon/zkbtc-icon-16.png",
+      "sha256": "f0943129e55a4ef16e3f73480a93d2659c4cd703b41256e70e50183411a8f0e2"
+    },
+    {
+      "bytes": 18880,
+      "kind": "raster-derived",
+      "path": "branding/favicon/zkbtc-icon-256.png",
+      "sha256": "0b86edc22cb36e3169b05dbf6a2d4c336e7ff1c903efa128df1111c3fda9ebfc"
+    },
+    {
+      "bytes": 905,
+      "kind": "raster-derived",
+      "path": "branding/favicon/zkbtc-icon-32.png",
+      "sha256": "193a49cf272f228de9fdc1e7aecce54efa726db9be4acf86b4529a73c57d394e"
+    },
+    {
+      "bytes": 1470,
+      "kind": "raster-derived",
+      "path": "branding/favicon/zkbtc-icon-48.png",
+      "sha256": "b01edec3176be461525beaa664c5bcf399511c39fd12c05f36538a40ce5087dc"
+    },
+    {
+      "bytes": 2152,
+      "kind": "raster-derived",
+      "path": "branding/favicon/zkbtc-icon-64.png",
+      "sha256": "63cf1ed269c6a20f41684ef91ad41e13c57d8bdc56dc20b6fba14a93cd8575f0"
+    },
+    {
+      "bytes": 32802,
+      "kind": "raster-derived",
+      "path": "branding/favicon/zkbtc.ico",
+      "sha256": "61ae02838376166b44e8b6c6f640fc7b8f8a6a26cbe31005b68d987f6e786a33"
+    },
+    {
+      "bytes": 65932,
+      "kind": "support",
+      "path": "branding/fonts/BitstreamVeraSans.ttf",
+      "sha256": "c4c45690b345435b2cba52ecabe275f05e49b389b39fe68ad03afbb551288d3d"
+    },
+    {
+      "bytes": 5954,
+      "kind": "support",
+      "path": "branding/fonts/LICENSE-BITSTREAM-VERA.txt",
+      "sha256": "3361d054759a2fc686a2c058be82deaf9c2e6fe549be9004d7935a6c1736315d"
+    },
+    {
+      "bytes": 646304,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/pdf/lockup/zkbtc-lockup-dark-bg.pdf",
+      "sha256": "11f703c6ef492687c7891146e9d9bb5791a047016fda9e892cf18e6ddd5bf2ca"
+    },
+    {
+      "bytes": 409596,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/pdf/lockup/zkbtc-lockup-light-bg.pdf",
+      "sha256": "a4d4ab71aa51fe3bd2937257aef965c4d5785ce5ff92adfc6693ca2b6d9f2c1a"
+    },
+    {
+      "bytes": 268828,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/pdf/lockup/zkbtc-lockup-mono-black.pdf",
+      "sha256": "43c847ee74fce6be20f292e185556621e8a5cac03007248aa2dad8fd6a6df8b5"
+    },
+    {
+      "bytes": 273401,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/pdf/lockup/zkbtc-lockup-mono-orange.pdf",
+      "sha256": "76cca3cb909e3069aad3a48fc6308583f1db6b8a05887785c058977a7c77ee65"
+    },
+    {
+      "bytes": 268827,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/pdf/lockup/zkbtc-lockup-mono-white.pdf",
+      "sha256": "ffc132f33856ee75b23793ce83dc2685b3dedecec30502c9ce4599f8369c06f2"
+    },
+    {
+      "bytes": 67012,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/pdf/symbol/zkbtc-symbol-black-transparent.pdf",
+      "sha256": "a0fee8e2552e3c8156ccb1ac62e038dc0f9bf49e9bdf0f144dd1027ee27f88f6"
+    },
+    {
+      "bytes": 376209,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/pdf/symbol/zkbtc-symbol-source-orange-transparent.pdf",
+      "sha256": "d33a1b7a02653a09e7947c5938903560f22bf7e11ef4a7886c7655b13b9acfc5"
+    },
+    {
+      "bytes": 67011,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/pdf/symbol/zkbtc-symbol-white-transparent.pdf",
+      "sha256": "c4b02b1ef469116ec075909c41f85f3cd3cd13e983e91ac8641995c2dde1589b"
+    },
+    {
+      "bytes": 301525,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-dark-bg-1280.png",
+      "sha256": "44e0cdc8f9418147a33c097a821b3605c4fe9d49f851047cb63b8598e66f4d37"
+    },
+    {
+      "bytes": 555191,
+      "kind": "raster-master",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-dark-bg-1774.png",
+      "sha256": "a4cf36c991f6458ef43f94077ff0c4d844855166df2a221715f79405cf3d5131"
+    },
+    {
+      "bytes": 649675,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-dark-bg-2560.png",
+      "sha256": "1d55bb6881ff33cc66cb400753a48bd3455bf1acb9faa55849e7b3af0d5f92a4"
+    },
+    {
+      "bytes": 18706,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-dark-bg-320.png",
+      "sha256": "6ebbdbb02ed954fc36c49126941458a1fe25585aab802863d4f90ec79a547729"
+    },
+    {
+      "bytes": 85536,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-dark-bg-640.png",
+      "sha256": "61581143e00138d870285af54b6d763157b305e0b875e795a8140db12aa1191d"
+    },
+    {
+      "bytes": 206402,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-light-bg-1280.png",
+      "sha256": "4f96dc7e6215bb50a77808121e858ce4e47c45b3e7ee802e8018e0bd2b8fae0e"
+    },
+    {
+      "bytes": 317539,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-light-bg-1774.png",
+      "sha256": "5231a62b4b4424ee2ca5aacfb58930712945192ba74beca484cf45d537484138"
+    },
+    {
+      "bytes": 469468,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-light-bg-2560.png",
+      "sha256": "2da1e58e47344e0782a246382dfb7232bdba3b4079e0fd1f63c823a34c66cfda"
+    },
+    {
+      "bytes": 15928,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-light-bg-320.png",
+      "sha256": "6a46c877c4ceb523968ffde274f76eebc391bea315a5e3a1860c3625338cd56c"
+    },
+    {
+      "bytes": 59694,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-light-bg-640.png",
+      "sha256": "974675d9356be77a452939f456e38bace7bd955b72917223c62a44f8d5707f11"
+    },
+    {
+      "bytes": 555191,
+      "kind": "raster-master",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-master-dark-bg.png",
+      "sha256": "a4cf36c991f6458ef43f94077ff0c4d844855166df2a221715f79405cf3d5131"
+    },
+    {
+      "bytes": 177658,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-mono-black-1280.png",
+      "sha256": "804a1212db6cf29de11343fbbbb05214cb184facacc37efb9ba13710373df483"
+    },
+    {
+      "bytes": 269331,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-mono-black-1774.png",
+      "sha256": "7de92d169b7fbedd716f05c8a9b308a0d7844d768293dab46839920bb28c7c7a"
+    },
+    {
+      "bytes": 390611,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-mono-black-2560.png",
+      "sha256": "218036c5ec786d0cbb70b4e68593900f3e766a629424c8d8e4cf93449689335a"
+    },
+    {
+      "bytes": 15161,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-mono-black-320.png",
+      "sha256": "1485eda0393169060886253ec90a73f8ec538ac76c2ae082d017bb0001b0ce11"
+    },
+    {
+      "bytes": 56078,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-mono-black-640.png",
+      "sha256": "c49f482a670cff0291d2360e7551358dc165316a32c41ed7ab18238f5dd76aba"
+    },
+    {
+      "bytes": 235282,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-mono-orange-1280.png",
+      "sha256": "560c6068ae33f3b44f64dfb3869037560b4e1d579e8a0e6369ed1facf9770ba1"
+    },
+    {
+      "bytes": 274598,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-mono-orange-1774.png",
+      "sha256": "59d508952d821fa58364748cfdd3655ea8d8478a50eb668903a8cda80ed19e45"
+    },
+    {
+      "bytes": 540995,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-mono-orange-2560.png",
+      "sha256": "52ef7936218373d28ef5fcf70449b2dcd5dc761cdb95667b10f152e17c997171"
+    },
+    {
+      "bytes": 21172,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-mono-orange-320.png",
+      "sha256": "40a7d8b99583735e140f4b4fbe050898d0613d893e6ff55b552d8f0d24771318"
+    },
+    {
+      "bytes": 75137,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-mono-orange-640.png",
+      "sha256": "698e2f7eca6cd41a1cca8c0abab943e173e874525b766bb2569cb3bd6d778fa1"
+    },
+    {
+      "bytes": 181753,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-mono-white-1280.png",
+      "sha256": "12cb51c20010d870a4f067a279d2023b779136cba1a51ff2da17de1273240bca"
+    },
+    {
+      "bytes": 262960,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-mono-white-1774.png",
+      "sha256": "f49ab3d5e6f845e59ab43a00c2deda1e0375cd340f53f1447c97116dda632076"
+    },
+    {
+      "bytes": 413052,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-mono-white-2560.png",
+      "sha256": "385b407894cce0c239050ac37a7c49c3f95e8028190989a7fa0a9df8ef2d1d85"
+    },
+    {
+      "bytes": 14477,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-mono-white-320.png",
+      "sha256": "8558d911ae60349adeb14483d35d966d2f4eb37a8703f97879e3fddf5400f321"
+    },
+    {
+      "bytes": 55688,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-mono-white-640.png",
+      "sha256": "79e86763e18b2387ca5505e316f0cd0428eab5eff7c816116a534170d7c536b8"
+    },
+    {
+      "bytes": 388770,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-transparent-dark-use-1280.png",
+      "sha256": "52e2de4628996709553f51f3ba9bccd6dd2decbcb984886d352d68561f5d5526"
+    },
+    {
+      "bytes": 593187,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-transparent-dark-use-1774.png",
+      "sha256": "6677d6cda0b212f228458d21ce5ade3d29cd568ec3752670743343aed554e5eb"
+    },
+    {
+      "bytes": 863072,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-transparent-dark-use-2560.png",
+      "sha256": "c3dbebd26d2b03f131f21bb0d6e55b37200201e114915cf30d8ff6f0cb8ff766"
+    },
+    {
+      "bytes": 24849,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-transparent-dark-use-320.png",
+      "sha256": "1cddbb3e476677bc711277c9c91e88455fb1cc9367e14e3d86911790af3fe231"
+    },
+    {
+      "bytes": 109250,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-transparent-dark-use-640.png",
+      "sha256": "59ae2d387128ef8edf02439dce3e6d8b2caa75386d4daac328348f114dab999e"
+    },
+    {
+      "bytes": 264388,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-transparent-light-use-1280.png",
+      "sha256": "d3bc873bfe697c0ecd0bbf820e7daf035ab400545e0f67b041dd62079d6aa7ac"
+    },
+    {
+      "bytes": 407544,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-transparent-light-use-1774.png",
+      "sha256": "5ec267544794a8c7d347d066fbaf454f45f84190ed54839f7948815d63a0c17d"
+    },
+    {
+      "bytes": 600317,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-transparent-light-use-2560.png",
+      "sha256": "e65a40870a8605102f470c31f7d733f7d8d25133b720d0e67631d691fa02337a"
+    },
+    {
+      "bytes": 18986,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-transparent-light-use-320.png",
+      "sha256": "4fd88281a556227eaccf8e367fcd9634ee1cf34d6a378bc83651c08f653425a4"
+    },
+    {
+      "bytes": 76106,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/lockup/zkbtc-lockup-transparent-light-use-640.png",
+      "sha256": "ef440086aebd3717c75562d09fdaa472641c68eeccdd9e4282b1c4d157e6cf15"
+    },
+    {
+      "bytes": 90306,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-black-on-warm-paper-1024.png",
+      "sha256": "654d4164d61a3b21eaddcf07b16645436f5ce04652fcc5a88d33534d1555e8af"
+    },
+    {
+      "bytes": 4465,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-black-on-warm-paper-128.png",
+      "sha256": "6ec915d64091c1b335c1c3e6e7fea40b92b0933094c0fd0e719a1a5bc16e2b07"
+    },
+    {
+      "bytes": 455,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-black-on-warm-paper-16.png",
+      "sha256": "10d4da647882a1dda5c54dee30182fe88842d1825bf71923d39cca58b2181161"
+    },
+    {
+      "bytes": 7722,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-black-on-warm-paper-192.png",
+      "sha256": "ef2d0cb95e31d93d822bd92ad5d62db93f8450da525b534cd198bd03f7235729"
+    },
+    {
+      "bytes": 11991,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-black-on-warm-paper-256.png",
+      "sha256": "782d33bc262aab55a7ca4409b1d1b681ec737cd79a81727cf6d0f96d926d489b"
+    },
+    {
+      "bytes": 945,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-black-on-warm-paper-32.png",
+      "sha256": "1eb63e88dfea977f715f75ea3e1e67e3c1a0145354efb9a24e3335d240bdff02"
+    },
+    {
+      "bytes": 35756,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-black-on-warm-paper-512.png",
+      "sha256": "6ee3f0386aa07ab4890e9ad96a1e6f1992d69f71222f83ca567b7853eff65d97"
+    },
+    {
+      "bytes": 1958,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-black-on-warm-paper-64.png",
+      "sha256": "304bd823f604ccf8f13e84b2d2430392f7fd4c58f5b94ab8e0b520d4255217d8"
+    },
+    {
+      "bytes": 70204,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-black-transparent-1024.png",
+      "sha256": "1019dcfc011fe132b361b60e0c5eb8ebbb82e1e25aaae0772349d98245fadff7"
+    },
+    {
+      "bytes": 3244,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-black-transparent-128.png",
+      "sha256": "604de83e4a4a01936d53a8643d62feb33da1bc95178dc2abd2293a673b38a4b1"
+    },
+    {
+      "bytes": 320,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-black-transparent-16.png",
+      "sha256": "9bb1a17e57e8c4df0b5690aa5189ae9a8dc349eae43984a308b4426b780d9a44"
+    },
+    {
+      "bytes": 5951,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-black-transparent-192.png",
+      "sha256": "882c698acf02750cf9323ff31a2b335071876c4b74baae9374794d6b20bdf608"
+    },
+    {
+      "bytes": 9479,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-black-transparent-256.png",
+      "sha256": "6f77acef4f9a5ba1b065b51583f8d93436d08f26df3d701572cf70d654e369e3"
+    },
+    {
+      "bytes": 609,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-black-transparent-32.png",
+      "sha256": "226c31f16fbdac502243ce93f30bbb41d90f3e8724838d50d98861ee5c0f6096"
+    },
+    {
+      "bytes": 28806,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-black-transparent-512.png",
+      "sha256": "56f9473de1a14bd68b5c0fd3454bbdb07fc541d4bd8b186e2ba327686f980228"
+    },
+    {
+      "bytes": 1315,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-black-transparent-64.png",
+      "sha256": "932a2184c829b7dfd8011db2787b93d2ab948bcfd6d58f433caa6860e688305d"
+    },
+    {
+      "bytes": 146073,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-on-black-1024.png",
+      "sha256": "958b9291411b2581f3ff300f43f14de85871109e6a539c8c15095571546d4e97"
+    },
+    {
+      "bytes": 5907,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-on-black-128.png",
+      "sha256": "71b24e3626b54df0bbba31c535ed86250d663988a0517a892a03e5a6a64890ba"
+    },
+    {
+      "bytes": 379,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-on-black-16.png",
+      "sha256": "f0943129e55a4ef16e3f73480a93d2659c4cd703b41256e70e50183411a8f0e2"
+    },
+    {
+      "bytes": 11650,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-on-black-192.png",
+      "sha256": "5083a4b941b2ff05552a7f52b449e9b2c077174ff03ea10f16ea1c66930ab9d1"
+    },
+    {
+      "bytes": 18880,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-on-black-256.png",
+      "sha256": "0b86edc22cb36e3169b05dbf6a2d4c336e7ff1c903efa128df1111c3fda9ebfc"
+    },
+    {
+      "bytes": 905,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-on-black-32.png",
+      "sha256": "193a49cf272f228de9fdc1e7aecce54efa726db9be4acf86b4529a73c57d394e"
+    },
+    {
+      "bytes": 60820,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-on-black-512.png",
+      "sha256": "61c62467e22d985268782191bc575ca6826679685782682d76032043af6f1dfa"
+    },
+    {
+      "bytes": 2152,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-on-black-64.png",
+      "sha256": "63cf1ed269c6a20f41684ef91ad41e13c57d8bdc56dc20b6fba14a93cd8575f0"
+    },
+    {
+      "bytes": 149841,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-on-warm-paper-1024.png",
+      "sha256": "99a57f3717a901f5ab6309293ae44aec06d1599ecbd7dab80433f207db972656"
+    },
+    {
+      "bytes": 5972,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-on-warm-paper-128.png",
+      "sha256": "19824dcc0a745f16f724bdecd50fcdc679b226130eaba160ac55d6cc5cc4a909"
+    },
+    {
+      "bytes": 442,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-on-warm-paper-16.png",
+      "sha256": "95e79a8bd4a58743031b8a9932e9dc79d717655d2a76f2614fa477bad0676ee1"
+    },
+    {
+      "bytes": 11524,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-on-warm-paper-192.png",
+      "sha256": "c99437495f524709e621c8b7094f36a59b5ad16a3eb6c07c094444f724597993"
+    },
+    {
+      "bytes": 18827,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-on-warm-paper-256.png",
+      "sha256": "f5a355a092b4bf457d6d330e20d4ae28f83ffdb81496911ab4a88dddc3023c09"
+    },
+    {
+      "bytes": 942,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-on-warm-paper-32.png",
+      "sha256": "e7b97c459d115b68ce8df3e34123838a21835e529614d396254dd9d602ff5ecd"
+    },
+    {
+      "bytes": 61481,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-on-warm-paper-512.png",
+      "sha256": "088a0dc61f445b1501024e9c9cfcbdffa7eed5043f65b06d77a3733efed735c4"
+    },
+    {
+      "bytes": 2210,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-on-warm-paper-64.png",
+      "sha256": "7de517d33473832cf53ed2477fba431e2fcf17cfdb3ec1d02a9a64fc30ce919d"
+    },
+    {
+      "bytes": 229545,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-transparent-1024.png",
+      "sha256": "1a7317f0e41d22e754e2e39d4f7fe1a9a914abd42be74a0a1f2e3b20aabe3e7b"
+    },
+    {
+      "bytes": 8998,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-transparent-128.png",
+      "sha256": "8d9e936e0f18d532a294b08478e06fe5ed6e6ff5d5bac08ebb1e8687f8278d78"
+    },
+    {
+      "bytes": 547,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-transparent-16.png",
+      "sha256": "de2404d17e93a998691d30cfca2b30a38cfbad774ec11f9b0d5154e2368f5315"
+    },
+    {
+      "bytes": 18266,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-transparent-192.png",
+      "sha256": "56d2fd356aa29dd45890bbc9e782df1241fbfefdbe5bbe795082c9fb832865bf"
+    },
+    {
+      "bytes": 30881,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-transparent-256.png",
+      "sha256": "331bbc73d5d349d3fde1c59b683100c806a79dbb612117ed1a6cb9d78d10061d"
+    },
+    {
+      "bytes": 1295,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-transparent-32.png",
+      "sha256": "0da160436e283df59bcdee42dd66f067ce6b69a2d2bdbb05a2f7279282e484d3"
+    },
+    {
+      "bytes": 99797,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-transparent-512.png",
+      "sha256": "0a2d03df0d198a64e9038cc19385c6aae6215db8b9cd09e95de201f054393676"
+    },
+    {
+      "bytes": 3192,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-source-orange-transparent-64.png",
+      "sha256": "2856454a2f8c9a3ad0167b5afd9fcb45fbb6c55d2d2a47bc7230319acd53980a"
+    },
+    {
+      "bytes": 80874,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-white-on-black-1024.png",
+      "sha256": "da2337c8312df994a4a6f0e69771ec82230491eb810f29be8a338a237003f218"
+    },
+    {
+      "bytes": 3613,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-white-on-black-128.png",
+      "sha256": "e9459e9c30bd1187cd265d5e5a5971f03b19ebd1baab3e0aa3ab09c5084d0c18"
+    },
+    {
+      "bytes": 387,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-white-on-black-16.png",
+      "sha256": "0ba4770c81bdf99723297643fe7646b644541d72d3efe63ab70e61a28ee9a81f"
+    },
+    {
+      "bytes": 6714,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-white-on-black-192.png",
+      "sha256": "c2fc5720af89cea9f3c1322d7459855caebcb719bbcce6e0f4b99525b8b0018e"
+    },
+    {
+      "bytes": 10262,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-white-on-black-256.png",
+      "sha256": "b2641f881e8924e88bf9ac331d0c82ce327047fc8b08f403ac5a25385258cf48"
+    },
+    {
+      "bytes": 804,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-white-on-black-32.png",
+      "sha256": "3b73b2e5576f071b3f7428c1d75690958da9ef5b454bc8d5ff4d676059586b61"
+    },
+    {
+      "bytes": 32328,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-white-on-black-512.png",
+      "sha256": "c63d9cfe950b467e9a933e527569de3ba2547a133dfdd54889efecd44169ce2a"
+    },
+    {
+      "bytes": 1606,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-white-on-black-64.png",
+      "sha256": "2de0055b86315f39b95c0997e5f5aa99eb8624789c0af80c97dd87251b64310c"
+    },
+    {
+      "bytes": 70200,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-white-transparent-1024.png",
+      "sha256": "7b44130eeed21c8e23baee72e3af622bad74713ba598578ac2cbea7c14a693e6"
+    },
+    {
+      "bytes": 3242,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-white-transparent-128.png",
+      "sha256": "4e7c1e293ed6ce3438b07c9eba51a0953f42ee12f44a6831eed83c54872a69ca"
+    },
+    {
+      "bytes": 318,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-white-transparent-16.png",
+      "sha256": "dcd8213f48e286d76bdb105d5318d2b98d51a9bc41f0f9d2e35cdf3100621005"
+    },
+    {
+      "bytes": 5950,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-white-transparent-192.png",
+      "sha256": "081b59b89cf807c2be859c631922cc4d17d36cb5a1885e732d964d53cb1343c9"
+    },
+    {
+      "bytes": 9478,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-white-transparent-256.png",
+      "sha256": "2ac63b731d5843ea61eab36296d7dcf3ef222d2e1d15f07b2b49796efdca65c3"
+    },
+    {
+      "bytes": 622,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-white-transparent-32.png",
+      "sha256": "c07a212b1407585ffb593c64c118706b64885631c67071ea7f9cc194031e1a36"
+    },
+    {
+      "bytes": 28795,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-white-transparent-512.png",
+      "sha256": "b866ed6b8eb409fa954843717c22f91475bd711e03b4de47862260eac8251cd5"
+    },
+    {
+      "bytes": 1309,
+      "kind": "raster-derived",
+      "path": "branding/logo/png/symbol/zkbtc-symbol-white-transparent-64.png",
+      "sha256": "755d50ddc44e7585bab6cdce598515b954a168da29df2a5b637dc96d764ace5d"
+    },
+    {
+      "bytes": 195151,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/svg/avatar/zkbtc-avatar-dark.svg",
+      "sha256": "dea2c16d4c4096e4c84579de9b442f50ce86830fe79694b7fa825119812a38a8"
+    },
+    {
+      "bytes": 200175,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/svg/avatar/zkbtc-avatar-light.svg",
+      "sha256": "20230575b3ebc7c7fb2f8b0d3a6a1ad3d4b40df338f9e8f7c3234931a33b5117"
+    },
+    {
+      "bytes": 740640,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/svg/lockup/zkbtc-lockup-dark-bg.svg",
+      "sha256": "20df29477a51437eaf4a61e4c46157b35f2e605447f998fddc6282fed17b36b2"
+    },
+    {
+      "bytes": 423772,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/svg/lockup/zkbtc-lockup-light-bg.svg",
+      "sha256": "f692ad0426017061e28498b0dfd5c559d7aa1a297a8bf14a557fbdecece9a119"
+    },
+    {
+      "bytes": 359492,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/svg/lockup/zkbtc-lockup-mono-black.svg",
+      "sha256": "edc4a4b1f3015e4c452d41a2960450d57dd1e8e3ee0f140b58c68d638e1a7aea"
+    },
+    {
+      "bytes": 366516,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/svg/lockup/zkbtc-lockup-mono-orange.svg",
+      "sha256": "4ea99f54a22873bdb8034cd9b9aab0ff8aa391c3971bc356aeab9bcf2428cd1f"
+    },
+    {
+      "bytes": 351000,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/svg/lockup/zkbtc-lockup-mono-white.svg",
+      "sha256": "775bbee814088dd9b3a424364915b2b19454bbb60ab4ac9202e9a9fca21d8540"
+    },
+    {
+      "bytes": 791300,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/svg/lockup/zkbtc-lockup-transparent-dark-use.svg",
+      "sha256": "bac3b6024a66e93e4f4bebbdd0cee887ebf5757355fc5c81dce21948ba53977d"
+    },
+    {
+      "bytes": 543776,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/svg/lockup/zkbtc-lockup-transparent-light-use.svg",
+      "sha256": "2a4f1e021a779b9b193f0fc4342c8c2505c0f3f23b0408da9e3fab7803555ca3"
+    },
+    {
+      "bytes": 120795,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/svg/symbol/zkbtc-symbol-black-on-warm-paper.svg",
+      "sha256": "ec9431a50defcbb7f2ed5f86b3e439acfd3cff4d7c67862414d76dae67d69310"
+    },
+    {
+      "bytes": 93995,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/svg/symbol/zkbtc-symbol-black-transparent.svg",
+      "sha256": "a38f30c59ecad22e549dcb3067b562f72d28e713ef8dc731b636078c3cc71319"
+    },
+    {
+      "bytes": 195151,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/svg/symbol/zkbtc-symbol-source-orange-on-black.svg",
+      "sha256": "dea2c16d4c4096e4c84579de9b442f50ce86830fe79694b7fa825119812a38a8"
+    },
+    {
+      "bytes": 200175,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/svg/symbol/zkbtc-symbol-source-orange-on-warm-paper.svg",
+      "sha256": "20230575b3ebc7c7fb2f8b0d3a6a1ad3d4b40df338f9e8f7c3234931a33b5117"
+    },
+    {
+      "bytes": 306447,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/svg/symbol/zkbtc-symbol-source-orange-transparent.svg",
+      "sha256": "d5e11f1d7aef3d99ed6e6d5e26a16627d656c07584b3af71e48561f134e54f02"
+    },
+    {
+      "bytes": 108219,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/svg/symbol/zkbtc-symbol-white-on-black.svg",
+      "sha256": "e707ed9e52f32c2ffcd5becc9de0a07ba145d936cfc91e4f57535dd6c2e2b941"
+    },
+    {
+      "bytes": 93987,
+      "kind": "raster-backed-container",
+      "path": "branding/logo/svg/symbol/zkbtc-symbol-white-transparent.svg",
+      "sha256": "319217de97b613fbc5be5ef132976c633c86fe5d682e3870143b3bb52ff6eb5b"
+    },
+    {
+      "bytes": 224340,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-dark-bg-1280.webp",
+      "sha256": "6364f16d6892da05ca41ec1245cf8207d90cb9e3cbbe86144c124a69eeb06f3c"
+    },
+    {
+      "bytes": 386316,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-dark-bg-1774.webp",
+      "sha256": "2bbe8bee63c3afbec049bcd23d428520a7571e26283ef2479b3940609b9b7990"
+    },
+    {
+      "bytes": 604262,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-dark-bg-2560.webp",
+      "sha256": "0f22f15923b787f8ce86af70555d4f9ca9631fa9b91132fe7798c83240ff6214"
+    },
+    {
+      "bytes": 13822,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-dark-bg-320.webp",
+      "sha256": "d06d3a40dee7f776c031d1a54393207408350275270aa11226c806a5d5e2ba35"
+    },
+    {
+      "bytes": 61472,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-dark-bg-640.webp",
+      "sha256": "132603ecdd9680af951447d5ffe64a8266572c0034298f457dc9f280c893a37b"
+    },
+    {
+      "bytes": 151274,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-light-bg-1280.webp",
+      "sha256": "961270f6eded445b9c5f466064d707b105cdfd8de513d463cd5a6fb7b18f965b"
+    },
+    {
+      "bytes": 229188,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-light-bg-1774.webp",
+      "sha256": "e9c8f346cb773f4657c3cf9b92cc8d16ea80ebfa98222d402d1ebcb1eb12d2ca"
+    },
+    {
+      "bytes": 369366,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-light-bg-2560.webp",
+      "sha256": "5f6c2ce284c69195e4d8b70cb70b11fdff12ffb1094572ad7359a2b1b4f1a7b2"
+    },
+    {
+      "bytes": 11304,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-light-bg-320.webp",
+      "sha256": "82e3a8399dece726ca8cf90de06cb9eb00b0bbf13dc0f3a0010a3be183c08001"
+    },
+    {
+      "bytes": 40854,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-light-bg-640.webp",
+      "sha256": "0b8f585685d291f9a700e3b53a9df2f4da227332e4d0264124001201887561aa"
+    },
+    {
+      "bytes": 134866,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-mono-black-1280.webp",
+      "sha256": "4513b071ea9ca0ad6ca4ab5281ae2123d7f0bd441e14bfb9cebaa2283fc34c02"
+    },
+    {
+      "bytes": 183514,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-mono-black-1774.webp",
+      "sha256": "a7a26b768d3cdb176b303bb797002c822f1bcce2a9a41edadde84634beda2f08"
+    },
+    {
+      "bytes": 306632,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-mono-black-2560.webp",
+      "sha256": "4d15f482a5ddd0a1e1e2eb8a939a144e62a00e03f305514727f4c9d15d75129e"
+    },
+    {
+      "bytes": 9130,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-mono-black-320.webp",
+      "sha256": "431516ab638c5e1f950d444f9ff3e53ab6dd6d64bf455cb6e073d1a7398ba194"
+    },
+    {
+      "bytes": 38394,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-mono-black-640.webp",
+      "sha256": "ade1dbc6cf0bcc621eca39c6dddd00a6b09ca42171b4f782ececfed3099aca6f"
+    },
+    {
+      "bytes": 179788,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-mono-orange-1280.webp",
+      "sha256": "2f550a055508ff61acbf8a95e41582882b7940e0eb79575eeb8114fdb0169e0b"
+    },
+    {
+      "bytes": 183514,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-mono-orange-1774.webp",
+      "sha256": "d957e59d41d8642e88235c3c5efcbe8cd55a43f4c3686d1de7ee197e20d8d39c"
+    },
+    {
+      "bytes": 397468,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-mono-orange-2560.webp",
+      "sha256": "694009c4f26ffffe6f38fde83db09b83a9b6a84b11ecf5d68cffadbf8f111d7e"
+    },
+    {
+      "bytes": 12008,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-mono-orange-320.webp",
+      "sha256": "615d3cb136bb7e6e4221b18de71f9f977f933cf244ba9f2abce8d0570b9da979"
+    },
+    {
+      "bytes": 57456,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-mono-orange-640.webp",
+      "sha256": "a66c12b8f66c6eebbe73bc3fdcc47935577eb37f4a684e8085664249ee652742"
+    },
+    {
+      "bytes": 117796,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-mono-white-1280.webp",
+      "sha256": "0861010d231f526d8f2460f807c6ec00e132765dfee551de6b7425f2ad72c71c"
+    },
+    {
+      "bytes": 183514,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-mono-white-1774.webp",
+      "sha256": "dc6b1d4d448f9379f7d0617cad14bb9f0753efcd64a0a96a28e231e1788a911e"
+    },
+    {
+      "bytes": 263044,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-mono-white-2560.webp",
+      "sha256": "ea223221be691f869f09944ddd0c2a00482ef6efff68dfa7c6b660f0ce0a8034"
+    },
+    {
+      "bytes": 8846,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-mono-white-320.webp",
+      "sha256": "97afffa269405ed95823c373e8c09caa94ff072bdc89dc62d8ce32592f08fe51"
+    },
+    {
+      "bytes": 35496,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-mono-white-640.webp",
+      "sha256": "0c462d4cf464b9b668b2c27b46972a76f3c0c68d0fe9057cf6523263e41fe1fb"
+    },
+    {
+      "bytes": 276042,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-transparent-dark-use-1280.webp",
+      "sha256": "36532e495c8426fd5aa2f4195f90eb24f7229421389d72751f895f234b60dfb0"
+    },
+    {
+      "bytes": 444208,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-transparent-dark-use-1774.webp",
+      "sha256": "4578042372ee3fa447eaba81e6241b514aa453d7a59ba5797026aaa60b945d20"
+    },
+    {
+      "bytes": 663790,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-transparent-dark-use-2560.webp",
+      "sha256": "32583eba0dd25b69e6ec98c38db309ee670d149a499cab017b35a26f5d9393fc"
+    },
+    {
+      "bytes": 15972,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-transparent-dark-use-320.webp",
+      "sha256": "b3e3c11b185aa5981f7422ca12a5a3cccd3ddb43469aeaa34527ec1f2beba7b5"
+    },
+    {
+      "bytes": 79668,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-transparent-dark-use-640.webp",
+      "sha256": "e37d36baab4eea089c2e98f3574e08faf13c41e788db629e5dd8df01c76ecf47"
+    },
+    {
+      "bytes": 180418,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-transparent-light-use-1280.webp",
+      "sha256": "f4d0791b76fb83b2f1061e544b9ffa42f68e53d7e7ae4c9dedbdab97b481025d"
+    },
+    {
+      "bytes": 285890,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-transparent-light-use-1774.webp",
+      "sha256": "69a320050dfb023b4eb5821a3ce50b1094b2b5e5e7675420c7786f211cf9ddbe"
+    },
+    {
+      "bytes": 434056,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-transparent-light-use-2560.webp",
+      "sha256": "758752fe859f3bd37d45301611ef32d2d169e480b28ff76e6c4a213ba0dabad2"
+    },
+    {
+      "bytes": 14784,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-transparent-light-use-320.webp",
+      "sha256": "2f208afba4da82f8f4291eded8462ece2dd5844907691c5051ac52fa98dac926"
+    },
+    {
+      "bytes": 54930,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/lockup/zkbtc-lockup-transparent-light-use-640.webp",
+      "sha256": "0b0c43cdddff6c5f7130539e9583d13ad6e20ea47fa5efd5861357929b3ce980"
+    },
+    {
+      "bytes": 40334,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-black-on-warm-paper-1024.webp",
+      "sha256": "2590cf39b1107b968d233378e16fa16761236961185a51d66a3969cb782efe8b"
+    },
+    {
+      "bytes": 2026,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-black-on-warm-paper-128.webp",
+      "sha256": "18464b2c2e83682f82958d104c123693852bcb68281b31905d6e59a2b4518cef"
+    },
+    {
+      "bytes": 258,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-black-on-warm-paper-16.webp",
+      "sha256": "ac0dfa221adf4c45fae00cdc66d205696c803fbd86c3b5d8ea4e0df09737259d"
+    },
+    {
+      "bytes": 3654,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-black-on-warm-paper-192.webp",
+      "sha256": "577cbc5093604acb030213d95961a9424b32d1d11d501e46d9cfe42eaf85f12b"
+    },
+    {
+      "bytes": 5822,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-black-on-warm-paper-256.webp",
+      "sha256": "f510e32deeb0c63b58fba1ea68697d5e9973c8c673c105e64e0429d197a56e69"
+    },
+    {
+      "bytes": 432,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-black-on-warm-paper-32.webp",
+      "sha256": "97a40aaf4ea23cbf47481608168356d55f3ea93a7796cd0d871f18112bb2ca72"
+    },
+    {
+      "bytes": 16888,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-black-on-warm-paper-512.webp",
+      "sha256": "377a07feb6bf4358f3334fab8366e4d2432debb30c9e50cd9c6b58683030e2b9"
+    },
+    {
+      "bytes": 856,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-black-on-warm-paper-64.webp",
+      "sha256": "2cb227ccee8e78694d326f56e7bdd82be0edde5afa8946be29d2a69649a5da63"
+    },
+    {
+      "bytes": 40290,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-black-transparent-1024.webp",
+      "sha256": "aa67bdeb88e920f76241b7c43879e8ebd20de64bc76e40f20542c05d5613ed17"
+    },
+    {
+      "bytes": 1948,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-black-transparent-128.webp",
+      "sha256": "81a7b5895dcf2cf95fb53096f03e5710ea828dcf07fdef9f63584281e55a5078"
+    },
+    {
+      "bytes": 186,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-black-transparent-16.webp",
+      "sha256": "2c7ac31da2e75b045b904a20655e57f92e0bb8e685eb885adebd77e21a709bb5"
+    },
+    {
+      "bytes": 3564,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-black-transparent-192.webp",
+      "sha256": "8443f9e98925e09b3cf660aa1626f8075cd937087f1f16ef24bf2f33a2c3fd4e"
+    },
+    {
+      "bytes": 5736,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-black-transparent-256.webp",
+      "sha256": "8b8764efc141f45086e905bca7e654d465503198783f1e798ef07e25b0b32897"
+    },
+    {
+      "bytes": 348,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-black-transparent-32.webp",
+      "sha256": "693a72fd6115e53b790a7473cc7c21a7ea948803b5abd9f244b0b4c7dbd3cc9f"
+    },
+    {
+      "bytes": 16802,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-black-transparent-512.webp",
+      "sha256": "19fadbe7341c1e5b4a57f6ff82b45d4c9a1b8e9f9a81c20346fbd6c6269efce8"
+    },
+    {
+      "bytes": 736,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-black-transparent-64.webp",
+      "sha256": "b7599d2179fe5d789f9e72261f673566fa126f75390e2e212e304774a16f9ab8"
+    },
+    {
+      "bytes": 103272,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-on-black-1024.webp",
+      "sha256": "d1dc39014a74b11e07ccdc866cd38bba71ae7ac68c38faf63ee2deae80e7f476"
+    },
+    {
+      "bytes": 4656,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-on-black-128.webp",
+      "sha256": "2c36218522291cb1182c4321706e5a4f39a350d21d6231384749e0eab8c494f3"
+    },
+    {
+      "bytes": 252,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-on-black-16.webp",
+      "sha256": "04613068f80cf61eb2534f78957f0daa765f88667815ccc8710c221a691dfe4d"
+    },
+    {
+      "bytes": 9336,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-on-black-192.webp",
+      "sha256": "3543ab3d748139eec6371c0e90bdb425f17f040512d13090fa3d6c4afc9fe9b0"
+    },
+    {
+      "bytes": 14982,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-on-black-256.webp",
+      "sha256": "8b50fe1bd3224719a1b90dd43d18ec36d0741efb79e3b5ea11941c2af7d199f7"
+    },
+    {
+      "bytes": 574,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-on-black-32.webp",
+      "sha256": "08870a594e88f024f85aae055a5f2ebff94be6816ab3bd706d8829860363123a"
+    },
+    {
+      "bytes": 41814,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-on-black-512.webp",
+      "sha256": "cba70d78a95b153f378bf473c8473017595f4ba68776ccd882a02d9d456dcfcf"
+    },
+    {
+      "bytes": 1654,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-on-black-64.webp",
+      "sha256": "c2aaddbfc0122983838ac51277cd9ecebef99dac061c4e814ad8877625a275ad"
+    },
+    {
+      "bytes": 106048,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-on-warm-paper-1024.webp",
+      "sha256": "f237df3c98e6a11215aa7a961028333d958ec7c808269ec0c61f667606f629dc"
+    },
+    {
+      "bytes": 4694,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-on-warm-paper-128.webp",
+      "sha256": "4f771660d7d7b599e07a8b42e576d60514bf6e078c27692a843e8613ef9443b2"
+    },
+    {
+      "bytes": 278,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-on-warm-paper-16.webp",
+      "sha256": "97ea9d08f0e58fef1972845656c8c9c53c437904b4f8f329af29f125be8c528e"
+    },
+    {
+      "bytes": 9410,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-on-warm-paper-192.webp",
+      "sha256": "6968666d518c2a8c20ddf5fbc2c9a0e938ac80cba66035fd0739b7c977247d8b"
+    },
+    {
+      "bytes": 15380,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-on-warm-paper-256.webp",
+      "sha256": "dfa864931e8704fd20cfc876b848765c3081357cdea9be354396c83eea49428d"
+    },
+    {
+      "bytes": 606,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-on-warm-paper-32.webp",
+      "sha256": "5b4936cb40f08f34fe4e16876c60f5a997e14cf42a0017a37bff435106ee11bc"
+    },
+    {
+      "bytes": 42478,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-on-warm-paper-512.webp",
+      "sha256": "d0933654fffd6eb68f16840cebf71e751aa06170138c67d770c73dbdaa24da18"
+    },
+    {
+      "bytes": 1704,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-on-warm-paper-64.webp",
+      "sha256": "534a0fdbda4c9af8fc60ac7fddc95e1481cd88aecf05d9f26404f68b1458978d"
+    },
+    {
+      "bytes": 119030,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-transparent-1024.webp",
+      "sha256": "6541cd5abad6dbc9a37eb1d36c36e4560dc45887b4d9f6cc3cac742be21d652c"
+    },
+    {
+      "bytes": 6074,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-transparent-128.webp",
+      "sha256": "6161e5c22543fd349f3ac1f99477295add229e2e52ad977326895c25857ef051"
+    },
+    {
+      "bytes": 340,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-transparent-16.webp",
+      "sha256": "380a7c69163e1b1979a651df5cd6d998012abeaf50ee401a0d4197b9a809e44b"
+    },
+    {
+      "bytes": 11592,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-transparent-192.webp",
+      "sha256": "16972d62e6e11f3e2d5646b51930f0f7d041d41d68d45e5385d9e679b8438437"
+    },
+    {
+      "bytes": 18282,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-transparent-256.webp",
+      "sha256": "5a77d61abe5e8740f085154af2ee9903c26b6e0de2a7bc6c7ed130eadbe4d15a"
+    },
+    {
+      "bytes": 732,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-transparent-32.webp",
+      "sha256": "233c0df88cb095d287d487ae5820749c9f65726620ab0e7a00c3c5124d34faf9"
+    },
+    {
+      "bytes": 48308,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-transparent-512.webp",
+      "sha256": "548e8b7a4db49084370474b3c4647c3ef4beb95da543aa50ffca44802be93808"
+    },
+    {
+      "bytes": 2316,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-source-orange-transparent-64.webp",
+      "sha256": "c1539cd35c193b5170b1398bb89c239689172b07e35e8a2b2a68cc5ae1aa01ea"
+    },
+    {
+      "bytes": 41508,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-white-on-black-1024.webp",
+      "sha256": "4c8f9090a9dae02e65f16b171716f98d3d1b3664910de28d8a58d4889047d114"
+    },
+    {
+      "bytes": 1900,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-white-on-black-128.webp",
+      "sha256": "ed553a438bdb89ca205a54631348381e33fe6f02b69b6e423c1327a781090d83"
+    },
+    {
+      "bytes": 170,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-white-on-black-16.webp",
+      "sha256": "b9060a35eaac218b06c2faa91ee48e66ea56b35ddd4d90a891427e1059c31bd1"
+    },
+    {
+      "bytes": 3542,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-white-on-black-192.webp",
+      "sha256": "e19a37dda36e6578250328d556fd84dd01ce473e9b15e5966d10cfb0a3b82847"
+    },
+    {
+      "bytes": 5712,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-white-on-black-256.webp",
+      "sha256": "f954a07b23d198e1e390b195c4d0f26d64eb8a8f40af45043ec844a8daf90d15"
+    },
+    {
+      "bytes": 332,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-white-on-black-32.webp",
+      "sha256": "6387abebad5a9e690fc2a5dbfb9778c33acc5e66805ee1c92090fb8c7186d5c4"
+    },
+    {
+      "bytes": 16746,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-white-on-black-512.webp",
+      "sha256": "75d4f457668ed2b7fcbdc45ede9f9c49b27722381747057d30e52cbffe07528e"
+    },
+    {
+      "bytes": 730,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-white-on-black-64.webp",
+      "sha256": "45b829e7e3bb1fe80c25d3976874caaea816c1cf070d901aa014a7a0637ecf6c"
+    },
+    {
+      "bytes": 40290,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-white-transparent-1024.webp",
+      "sha256": "d372fe8fec0f7c7abd0b6c2f70360f4df057475d149abc1516a5d9881777d633"
+    },
+    {
+      "bytes": 1948,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-white-transparent-128.webp",
+      "sha256": "e87e6d5bd5dc15749aedda8982dff397ee7252f5458bd21de3612662b7b98482"
+    },
+    {
+      "bytes": 186,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-white-transparent-16.webp",
+      "sha256": "19019bd87219680803e4b2dc98f43dc3e709aacdb84b700376e7fe079a22d066"
+    },
+    {
+      "bytes": 3564,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-white-transparent-192.webp",
+      "sha256": "fbb0ff5a7236f0c7b9efd483cc75ca32c18bbc9c275730bb0cb2e9db617bf631"
+    },
+    {
+      "bytes": 5734,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-white-transparent-256.webp",
+      "sha256": "d31f40bcf7fd2f1c76c6bce30f201018f440cb7160bcced03efd317e23691a73"
+    },
+    {
+      "bytes": 348,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-white-transparent-32.webp",
+      "sha256": "4251dfe2b11b11b62c7859ae1eb98205d84509597344db6c6cf4cc86d0612454"
+    },
+    {
+      "bytes": 16802,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-white-transparent-512.webp",
+      "sha256": "19b814a6c960fcf40ed580cea9974d94b8ebe4ad755bc0d014b33eb1b781cd3a"
+    },
+    {
+      "bytes": 738,
+      "kind": "raster-derived",
+      "path": "branding/logo/webp/symbol/zkbtc-symbol-white-transparent-64.webp",
+      "sha256": "03bed8b0fa9c0404b10d04a916726ad486710988d95ee8dfad669bc589f97658"
+    },
+    {
+      "bytes": 160905,
+      "kind": "raster-derived",
+      "path": "branding/previews/00-master-fidelity.png",
+      "sha256": "11d47a90ec1b258c90b2fa9d1d39376832ae73ed4824c8fdd928e7f002eb0f7b"
+    },
+    {
+      "bytes": 275652,
+      "kind": "raster-derived",
+      "path": "branding/previews/01-lockups.png",
+      "sha256": "3020f93b9d357d4e3ce441f3486f70800676ece30e6ebdf86f7e4ad15b711858"
+    },
+    {
+      "bytes": 233127,
+      "kind": "raster-derived",
+      "path": "branding/previews/02-symbols.png",
+      "sha256": "43a4538c52738c48b4b034a2eb626eb2951674db287e17585fc7933d52aad850"
+    },
+    {
+      "bytes": 246783,
+      "kind": "raster-derived",
+      "path": "branding/previews/03-sizes-and-clearspace.png",
+      "sha256": "5d171814e0e7de4a23aa1f76d549968193c247b4405205fa47dd59d23dc977f7"
+    },
+    {
+      "bytes": 225688,
+      "kind": "raster-derived",
+      "path": "branding/previews/04-correct-incorrect-use.png",
+      "sha256": "7772f7e9b70af52f56cef0a5b698fee7ce3f5313bd6e99c2a23f44b2bc6a1251"
+    },
+    {
+      "bytes": 70363,
+      "kind": "raster-derived",
+      "path": "branding/previews/05-file-map.png",
+      "sha256": "cf9c88ad4f4eabd57fddb03f2f9250a9be3f9973ee487f38a224f4369187480a"
+    },
+    {
+      "bytes": 146073,
+      "kind": "raster-derived",
+      "path": "branding/social/zkbtc-avatar-dark-1024.png",
+      "sha256": "958b9291411b2581f3ff300f43f14de85871109e6a539c8c15095571546d4e97"
+    },
+    {
+      "bytes": 60820,
+      "kind": "raster-derived",
+      "path": "branding/social/zkbtc-avatar-dark-512.png",
+      "sha256": "61c62467e22d985268782191bc575ca6826679685782682d76032043af6f1dfa"
+    },
+    {
+      "bytes": 149841,
+      "kind": "raster-derived",
+      "path": "branding/social/zkbtc-avatar-light-1024.png",
+      "sha256": "99a57f3717a901f5ab6309293ae44aec06d1599ecbd7dab80433f207db972656"
+    },
+    {
+      "bytes": 61481,
+      "kind": "raster-derived",
+      "path": "branding/social/zkbtc-avatar-light-512.png",
+      "sha256": "088a0dc61f445b1501024e9c9cfcbdffa7eed5043f65b06d77a3733efed735c4"
+    },
+    {
+      "bytes": 177263,
+      "kind": "raster-derived",
+      "path": "branding/social/zkbtc-og-dark-1280x640.png",
+      "sha256": "becf6d47fc6a9289fae1965c8cb67a89b0682ff69676550e86a3e86c98e76ad9"
+    },
+    {
+      "bytes": 41741,
+      "kind": "raster-derived",
+      "path": "branding/social/zkbtc-og-dark-640x320.png",
+      "sha256": "2e3a05f2a46b5cd50ea8f5beb3d621207c6006ae8c195ae4daedb03032dadd08"
+    },
+    {
+      "bytes": 117897,
+      "kind": "raster-derived",
+      "path": "branding/social/zkbtc-og-light-1280x640.png",
+      "sha256": "094877fa0b8b7b02e85cc4b61392c26a9807dc6ecf630d1edd40aeeb626377f5"
+    },
+    {
+      "bytes": 32745,
+      "kind": "raster-derived",
+      "path": "branding/social/zkbtc-og-light-640x320.png",
+      "sha256": "3d72d09e8b9ec80f12f4b674847030e9185ad634e3ca652862152e17977522a1"
+    },
+    {
+      "bytes": 555191,
+      "kind": "raster-master",
+      "path": "branding/source/zkbtc-logo-master.png",
+      "sha256": "a4cf36c991f6458ef43f94077ff0c4d844855166df2a221715f79405cf3d5131"
+    },
+    {
+      "bytes": 189,
+      "kind": "support",
+      "path": "branding/tokens/tokens.css",
+      "sha256": "6514b977960a88b4e3cf46da71c785a4e0f9117ba548dd12d75ba739cab32c72"
+    },
+    {
+      "bytes": 930,
+      "kind": "support",
+      "path": "branding/tokens/tokens.json",
+      "sha256": "6c8f61df492f399de9d8f5bba856ef760224066c51dd36bbc65d1b071427f319"
+    },
+    {
+      "bytes": 39132,
+      "kind": "support",
+      "path": "branding/tools/export_branding.py",
+      "sha256": "d12b04b42d78fce8f540718ec56f3d47926824c04249b6d995daeeeba10368ba"
+    },
+    {
+      "bytes": 17459,
+      "kind": "support",
+      "path": "branding/tools/verify_branding.py",
+      "sha256": "7323b7434c266ae0b1ea83d56b21eeaf4e9dbea53f5aa42fabd10bb34fd1d31b"
+    },
+    {
+      "bytes": 1863462,
+      "kind": "raster-backed-container",
+      "path": "branding/zkbtc-brandbook.pdf",
+      "sha256": "4c2e938a92b0960507e37688c56a8288cadc31a49ac324fca3fc6841d354aa53"
+    }
+  ],
+  "lightUseAlphaCutoff": 32,
+  "limitation": "Without a true vector master, SVG and PDF outputs are raster-backed containers. The approved PNG pixels define the artwork.",
+  "masterKind": "raster-master",
+  "pdfInvariant": 1,
+  "preview03_1280Label": "1280\u00d7640 export \u2014 scaled for sheet",
+  "source": {
+    "height": 887,
+    "path": "branding/source/zkbtc-logo-master.png",
+    "sha256": "a4cf36c991f6458ef43f94077ff0c4d844855166df2a221715f79405cf3d5131",
+    "width": 1774
+  },
+  "symbolCrop": [
+    220,
+    180,
+    610,
+    715
+  ],
+  "transparentRecompositeMaxChannelDelta": 0,
+  "webpLosslessMethod": 4,
+  "wordmarkSplitX": 980
+}
