@@ -96,6 +96,11 @@ Details are in the specification’s **Construction decision and maturity gate**
 | [`CONTRIBUTING.md`](./CONTRIBUTING.md) | How to propose changes and the spec-conformance rules. |
 | [`SECURITY.md`](./SECURITY.md) | Responsible disclosure for soundness issues. |
 | [`LICENSE`](./LICENSE) | MIT license. |
+| [`branding/`](./branding/) | Raster-master brand package. Approved PNG pixels only; SVG/PDF are raster-backed containers. |
+
+## Branding
+
+The only logo master is [`branding/source/zkbtc-logo-master.png`](./branding/source/zkbtc-logo-master.png) (1774×887, SHA-256 `a4cf36c991f6458ef43f94077ff0c4d844855166df2a221715f79405cf3d5131`). Exports, the A4 brandbook, and `branding/asset-manifest.json` live under [`branding/`](./branding/). The mark is not reconstructed: every file is derived from those pixels. SVG and PDF are raster-backed containers, not vector art. See [`branding/BRANDBOOK.md`](./branding/BRANDBOOK.md).
 
 ## Related repositories
 
